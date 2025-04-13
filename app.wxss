@@ -1,0 +1,279 @@
+/* 全局自适应样式 */
+page {
+  --safe-area-inset-top: env(safe-area-inset-top);
+  --safe-area-inset-bottom: env(safe-area-inset-bottom);
+  height: 100%;
+  background: #ffffff;
+}
+
+/* 全局容器样式 */
+.container {
+  min-height: 100vh;
+  background-color: #ffffff;
+  padding-bottom: calc(env(safe-area-inset-bottom) + 120rpx);
+  box-sizing: border-box;
+}
+
+/* 页面通用安全区域适配 */
+.safe-area-top {
+  padding-top: env(safe-area-inset-top);
+}
+
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* 通用导航栏 */
+.custom-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #07c160;
+  z-index: 999;
+  padding-top: env(safe-area-inset-top);
+}
+
+.nav-title {
+  height: 44px;
+  line-height: 44px;
+  text-align: center;
+  color: #ffffff;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+/* 通用底部固定按钮样式 */
+.fixed-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20rpx 30rpx calc(env(safe-area-inset-bottom) + 20rpx);
+  background-color: #ffffff;
+  box-shadow: 0 -2rpx 10rpx rgba(0, 0, 0, 0.05);
+  z-index: 100;
+}
+
+/* 通用按钮样式 */
+.btn-primary {
+  background-color: #8BC34A;
+  color: #ffffff;
+  border-radius: 6rpx;
+  font-size: 30rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  width: 100%;
+  border: none;
+}
+
+/* 通用网格布局 */
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10rpx;
+  padding: 15rpx;
+  width: 95%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* 通用滚动区域 */
+.scroll-x {
+  width: 100%;
+  white-space: nowrap;
+  background: #ffffff;
+}
+
+/* 通用列表项样式 */
+.list-item {
+  padding: 20rpx;
+  background: #ffffff;
+  border-radius: 6rpx;
+  margin-bottom: 10rpx;
+}
+
+/* 通用文本大小 */
+.text-small {
+  font-size: 24rpx;
+}
+
+.text-normal {
+  font-size: 28rpx;
+}
+
+.text-large {
+  font-size: 32rpx;
+}
+
+/* 通用边距 */
+.margin-safe {
+  margin: 0 20rpx;
+}
+
+.padding-safe {
+  padding: 0 20rpx;
+}
+
+/* 适配刘海屏 */
+@supports (padding-bottom: constant(safe-area-inset-bottom)) {
+  .fixed-bottom {
+    padding-bottom: calc(constant(safe-area-inset-bottom) + 20rpx);
+  }
+}
+
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .fixed-bottom {
+    padding-bottom: calc(env(safe-area-inset-bottom) + 20rpx);
+  }
+}
+
+/* 通用flex布局 */
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-between {
+  justify-content: space-between;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+/* 通用卡片样式 */
+.card {
+  background: #ffffff;
+  border-radius: 8rpx;
+  padding: 20rpx;
+  margin: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+/* 通用表单样式 */
+.form-group {
+  margin-bottom: 20rpx;
+}
+
+.form-label {
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.form-input {
+  width: 100%;
+  height: 88rpx;
+  background: #f8f8f8;
+  border-radius: 6rpx;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+}
+
+/* 通用加载状态 */
+.loading {
+  text-align: center;
+  padding: 30rpx;
+  color: #999;
+  font-size: 24rpx;
+}
+
+/* 通用空状态 */
+.empty {
+  text-align: center;
+  padding: 60rpx 30rpx;
+  color: #999;
+  font-size: 28rpx;
+}
+
+/* 通用遮罩层 */
+.mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 900;
+}
+
+/* 通用弹窗 */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ffffff;
+  border-radius: 12rpx;
+  padding: 30rpx;
+  width: 80%;
+  z-index: 999;
+}
+
+/* 通用头像样式 */
+.avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}
+
+/* 通用分割线 */
+.divider {
+  height: 1rpx;
+  background: #eee;
+  margin: 20rpx 0;
+}
+
+/* 通用标签 */
+.tag {
+  display: inline-block;
+  padding: 4rpx 12rpx;
+  border-radius: 4rpx;
+  font-size: 24rpx;
+  margin-right: 10rpx;
+}
+
+/* 通用价格样式 */
+.price {
+  color: #ff4d4f;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+/* 通用状态样式 */
+.status {
+  display: inline-block;
+  padding: 4rpx 12rpx;
+  border-radius: 4rpx;
+  font-size: 24rpx;
+}
+
+.status-success {
+  background: #f6ffed;
+  color: #52c41a;
+  border: 1rpx solid #b7eb8f;
+}
+
+.status-warning {
+  background: #fffbe6;
+  color: #faad14;
+  border: 1rpx solid #ffe58f;
+}
+
+.status-error {
+  background: #fff2f0;
+  color: #ff4d4f;
+  border: 1rpx solid #ffccc7;
+} 

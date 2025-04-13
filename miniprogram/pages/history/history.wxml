@@ -1,0 +1,54 @@
+<view class="history-container">
+  <block wx:if="{{historyList.length > 0}}">
+    <view class="order-list">
+      <view class="order-item" wx:for="{{historyList}}" wx:key="_id" catchtap="viewOrderDetail" data-id="{{item._id}}">
+        <view class="order-header">
+          <text class="order-number">订单号：{{item._id}}</text>
+          <text class="order-status completed">已完成</text>
+        </view>
+        
+        <view class="order-service">
+          <text class="service-name">{{item.service_name}}</text>
+          <text class="service-duration">{{item.service_duration}}分钟</text>
+        </view>
+        
+        <view class="order-info">
+          <text class="order-time">预约时间：{{item.appointment_date}} {{item.time_slot}}</text>
+          <text class="order-amount">￥{{item.amountFormat}}</text>
+        </view>
+        
+        <view class="order-footer">
+          <text class="create-time">完成时间：{{item.createTimeFormat}}</text>
+          <view class="order-actions">
+            <text class="action-btn review-btn" catchtap="gotoReview" data-id="{{item._id}}">评价</text>
+          </view>
+        </view>
+        
+        <!-- 自动完成标记 -->
+        <view class="order-status-reason" wx:if="{{item.auto_completed}}">
+          <text class="status-reason complete-reason">服务已完成</text>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 加载状态 -->
+    <view class="loading" wx:if="{{loading}}">
+      <text>加载中...</text>
+    </view>
+    
+    <!-- 加载完毕提示 -->
+    <view class="no-more" wx:if="{{!hasMore && historyList.length > 0}}">
+      <text>没有更多订单了</text>
+    </view>
+  </block>
+
+  <view class="empty-state" wx:if="{{historyList.length === 0 && !loading}}">
+    <image class="empty-icon" src="/images/empty-orders.png" mode="aspectFit"></image>
+    <text class="empty-text">暂无已完成订单</text>
+  </view>
+  
+  <!-- 加载状态 -->
+  <view class="loading" wx:if="{{loading}}">
+    <text>加载中...</text>
+  </view>
+</view> 

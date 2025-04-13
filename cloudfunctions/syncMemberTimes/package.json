@@ -1,0 +1,17 @@
+{
+  "name": "sync-member-times",
+  "version": "1.0.0",
+  "description": "同步会员剩余次数，确保总次数等于各项目次数之和",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0"
+  }
+} 

@@ -1,0 +1,622 @@
+.page-container {
+  background-color: #f1f8e9;
+  min-height: 100vh;
+  padding-bottom: 30rpx;
+}
+
+/* 容器样式 */
+.container {
+  padding: 0 0 20rpx;
+  background-color: #f1f8e9;
+  min-height: 100vh;
+}
+
+/* 未登录状态 */
+.login-required {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to bottom, #f0fff0, #e6ffe6);
+  padding: 30rpx;
+}
+
+.login-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40rpx;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 16rpx;
+  box-shadow: 0 2rpx 20rpx rgba(0, 0, 0, 0.1);
+  width: 85%;
+}
+
+.login-message image {
+  width: 180rpx;
+  height: 180rpx;
+  margin-bottom: 30rpx;
+}
+
+.message-text {
+  font-size: 34rpx;
+  font-weight: bold;
+  margin-bottom: 30rpx;
+  color: #333;
+}
+
+.login-btn {
+  background: linear-gradient(to right, #4caf50, #7cb342);
+  color: white;
+  border-radius: 40rpx;
+  font-size: 30rpx;
+  padding: 15rpx 80rpx;
+  margin-top: 20rpx;
+  border: none;
+  box-shadow: 0 4rpx 10rpx rgba(76, 175, 80, 0.3);
+}
+
+/* 顶部统计栏 */
+.stats-bar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: linear-gradient(135deg, #388e3c 0%, #7cb342 100%);
+  color: white;
+  padding: 30rpx 20rpx;
+  margin: 0 0 20rpx;
+  border-radius: 0 0 24rpx 24rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.stat-value {
+  font-size: 48rpx;
+  font-weight: bold;
+  margin-bottom: 6rpx;
+  text-shadow: 0 1rpx 2rpx rgba(0, 0, 0, 0.2);
+}
+
+.stat-label {
+  font-size: 24rpx;
+  opacity: 0.9;
+}
+
+/* 快捷操作栏 */
+.quick-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0 20rpx 20rpx;
+  margin-bottom: 16rpx;
+}
+
+.action-btn {
+  flex: 1;
+  margin: 0 8rpx;
+  padding: 16rpx 0;
+  font-size: 26rpx;
+  border-radius: 8rpx;
+  background-color: white;
+  color: #333;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.action-btn:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4rpx;
+  height: 100%;
+}
+
+.confirm-btn:before {
+  background-color: #52c41a;
+}
+
+.book-btn:before {
+  background-color: #4caf50;
+}
+
+.reschedule-btn:before {
+  background-color: #8bc34a;
+}
+
+.cancel-btn:before {
+  background-color: #f5222d;
+}
+
+.complete-btn:before {
+  background-color: #13c2c2;
+}
+
+.details-btn:before {
+  background-color: #388e3c;
+}
+
+.action-icon {
+  font-size: 36rpx;
+  margin-bottom: 8rpx;
+}
+
+/* 连接状态显示 */
+.connection-status {
+  text-align: center;
+  font-size: 24rpx;
+  padding: 8rpx 0;
+  margin: 0 20rpx 10rpx;
+  border-radius: 8rpx;
+  transition: all 0.3s ease;
+}
+
+.connection-status.normal {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: #4caf50;
+}
+
+.connection-status.error {
+  background-color: rgba(245, 34, 45, 0.1);
+  color: #f5222d;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
+/* 下拉刷新提示 */
+.pull-refresh-tip {
+  text-align: center;
+  font-size: 24rpx;
+  color: #8c8c8c;
+  padding: 10rpx 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.02), rgba(0,0,0,0));
+  margin-bottom: 10rpx;
+}
+
+/* 头部搜索和筛选 */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: #f8fcf8;
+  padding: 16rpx 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  padding: 16rpx 20rpx;
+  border-radius: 8rpx;
+  margin-bottom: 16rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+}
+
+.search-bar icon {
+  margin-right: 10rpx;
+  color: #bfbfbf;
+}
+
+.search-bar input {
+  flex: 1;
+  font-size: 28rpx;
+}
+
+.tabs {
+  display: flex;
+  background-color: white;
+  border-radius: 8rpx;
+  overflow: hidden;
+  margin-bottom: 10rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+}
+
+.tab {
+  flex: 1;
+  text-align: center;
+  padding: 16rpx 0;
+  font-size: 28rpx;
+  color: #666;
+  position: relative;
+  transition: all 0.3s;
+}
+
+.tab.active {
+  color: #4caf50;
+  font-weight: bold;
+}
+
+.tab.active:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 30%;
+  width: 40%;
+  height: 4rpx;
+  background-color: #4caf50;
+  border-radius: 4rpx;
+}
+
+/* 加载状态 */
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60rpx 0;
+  color: #8c8c8c;
+}
+
+.loading-spinner {
+  width: 60rpx;
+  height: 60rpx;
+  border: 4rpx solid rgba(76, 175, 80, 0.1);
+  border-left-color: #4caf50;
+  border-radius: 50%;
+  margin-bottom: 20rpx;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* 空状态 */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80rpx 40rpx;
+  color: #8c8c8c;
+  font-size: 28rpx;
+  text-align: center;
+}
+
+.empty-icon {
+  width: 160rpx;
+  height: 160rpx;
+  margin-bottom: 20rpx;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.7;
+  position: relative;
+}
+
+.empty-icon:before {
+  content: '📅';
+  font-size: 120rpx;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.empty-icon.today:before {
+  content: '📅';
+}
+
+.empty-icon.upcoming:before {
+  content: '⏰';
+}
+
+.empty-icon.all:before {
+  content: '📝';
+}
+
+.empty-action {
+  display: flex;
+  margin-top: 30rpx;
+}
+
+.refresh-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to right, #4caf50, #7cb342);
+  color: white;
+  padding: 12rpx 30rpx;
+  border-radius: 8rpx;
+  margin-right: 20rpx;
+  border: none;
+  font-size: 26rpx;
+}
+
+.refresh-icon {
+  display: inline-block;
+  margin-right: 8rpx;
+  animation: rotate 2s linear infinite paused;
+}
+
+.refresh-btn:active .refresh-icon {
+  animation-play-state: running;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.add-btn {
+  background: linear-gradient(to right, #52c41a, #7cb342);
+  color: white;
+  padding: 12rpx 30rpx;
+  border-radius: 8rpx;
+  border: none;
+  font-size: 26rpx;
+}
+
+/* 预约列表 */
+.appointment-list {
+  padding: 0 20rpx;
+}
+
+.appointment-card {
+  background-color: white;
+  border-radius: 12rpx;
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 16rpx rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+  border-left: 4rpx solid #4caf50;
+  transition: all 0.3s;
+}
+
+.appointment-card:hover {
+  transform: translateY(-2rpx);
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.1);
+}
+
+.appointment-card[data-status="pending"] {
+  border-left-color: #8bc34a;
+}
+
+.appointment-card[data-status="confirmed"] {
+  border-left-color: #52c41a;
+}
+
+.appointment-card[data-status="cancelled"] {
+  border-left-color: #f5222d;
+}
+
+.appointment-card[data-status="completed"] {
+  border-left-color: #13c2c2;
+}
+
+.appointment-card[data-status="paid"] {
+  border-left-color: #388e3c;
+}
+
+.appointment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+
+.appointment-service {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.appointment-status-tag {
+  padding: 6rpx 16rpx;
+  font-size: 24rpx;
+  border-radius: 4rpx;
+  color: white;
+}
+
+.appointment-status-tag.pending {
+  background-color: #8bc34a;
+}
+
+.appointment-status-tag.confirmed {
+  background-color: #52c41a;
+}
+
+.appointment-status-tag.cancelled {
+  background-color: #f5222d;
+}
+
+.appointment-status-tag.completed {
+  background-color: #13c2c2;
+}
+
+.appointment-status-tag.paid {
+  background-color: #388e3c;
+}
+
+.appointment-time {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16rpx;
+  border-left: 4rpx solid #e8f5e9;
+  padding-left: 16rpx;
+}
+
+.date {
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 4rpx;
+}
+
+.time {
+  font-size: 24rpx;
+  color: #8c8c8c;
+}
+
+.appointment-customer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16rpx;
+  border-left: 4rpx solid #e8f5e9;
+  padding-left: 16rpx;
+}
+
+.customer-name {
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 4rpx;
+}
+
+.customer-phone {
+  font-size: 24rpx;
+  color: #8c8c8c;
+}
+
+/* 治疗师信息 */
+.therapist-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16rpx;
+  padding: 12rpx;
+  background-color: #f1f8e9;
+  border-radius: 8rpx;
+}
+
+.therapist-avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin-right: 16rpx;
+  border: 2rpx solid #c8e6c9;
+}
+
+.therapist-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.therapist-name {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: bold;
+}
+
+.therapist-title {
+  font-size: 24rpx;
+  color: #8c8c8c;
+}
+
+/* 预约备注 */
+.appointment-notes {
+  display: flex;
+  align-items: flex-start;
+  background-color: #f1f8e9;
+  padding: 12rpx;
+  border-radius: 8rpx;
+  margin-bottom: 16rpx;
+}
+
+.notes-icon {
+  margin-right: 10rpx;
+  font-size: 32rpx;
+  color: #8bc34a;
+}
+
+.notes-content {
+  flex: 1;
+  font-size: 26rpx;
+  color: #666;
+}
+
+/* 操作按钮 */
+.appointment-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 16rpx;
+  border-top: 1px solid #f0f0f0;
+}
+
+.appointment-actions .action-btn {
+  margin: 0 0 0 16rpx;
+  padding: 8rpx 24rpx;
+  font-size: 24rpx;
+  display: inline-flex;
+  flex-direction: row;
+  min-width: auto;
+}
+
+.action-btn.confirm-btn {
+  background: linear-gradient(to right, #52c41a, #7cb342);
+  color: white;
+}
+
+.action-btn.reschedule-btn {
+  background: linear-gradient(to right, #8bc34a, #9ccc65);
+  color: white;
+}
+
+.action-btn.cancel-btn {
+  background: linear-gradient(to right, #f5222d, #ff4d4f);
+  color: white;
+}
+
+.action-btn.complete-btn {
+  background: linear-gradient(to right, #4caf50, #66bb6a);
+  color: white;
+}
+
+.action-btn.details-btn {
+  background: linear-gradient(to right, #388e3c, #66bb6a);
+  color: white;
+}
+
+/* 底部提示 */
+.bottom-tips {
+  text-align: center;
+  font-size: 24rpx;
+  color: #bfbfbf;
+  padding: 30rpx 0 10rpx;
+}
+
+/* 动画 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10rpx);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.appointment-card {
+  animation: fadeIn 0.3s ease;
+} 

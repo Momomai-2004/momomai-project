@@ -1,0 +1,110 @@
+<view class="member-container">
+  <!-- 已登录显示用户信息 -->
+  <block wx:if="{{isLoggedIn}}">
+    <view class="content-box">
+      <!-- 用户信息大盒子 -->
+      <view class="user-info-box">
+        <!-- 头像和名称盒子 -->
+        <view class="avatar-name-box">
+          <image class="avatar" src="{{userInfo.avatarUrl || '/images/default-avatar.png'}}" mode="aspectFill"></image>
+          <text class="name">{{userInfo.nickName || '用户昵称'}}</text>
+        </view>
+        
+        <!-- 次数和余额盒子容器 -->
+        <view class="balance-container">
+          <!-- 剩余次数盒子 - 改为按钮 -->
+          <view class="balance-box remaining-btn" bindtap="showRemainingDetails">
+            <text class="balance-label">剩余次数</text>
+            <text class="balance-value">查看详情 ></text>
+          </view>
+          <!-- 钱包余额盒子 -->
+          <view class="balance-box">
+            <text class="balance-label">钱包余额</text>
+            <text class="balance-value">¥{{walletBalance || '0.00'}}</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 功能按钮大盒子 -->
+      <view class="function-box">
+        <!-- 订单图标 -->
+        <view class="function-item" bind:tap="goToOrders">
+          <image class="function-icon" src="../../images/order-icon.png" mode="aspectFit"></image>
+          <text>订单</text>
+        </view>
+
+        <!-- 历史记录图标 -->
+        <view class="function-item" bind:tap="goToHistory">
+          <image class="function-icon" src="../../images/history-calendar.png" mode="aspectFit"></image>
+          <text>历史记录</text>
+        </view>
+
+        <!-- 充值图标 -->
+        <view class="function-item" bind:tap="goToRecharge">
+          <image class="function-icon" src="../../images/recharge-yuan.png" mode="aspectFit"></image>
+          <text>充值</text>
+        </view>
+
+        <!-- 核销图标 -->
+        <view class="function-item" bind:tap="goToVerification">
+          <image class="function-icon" src="../../images/verify.png" mode="aspectFit"></image>
+          <text>核销</text>
+        </view>
+      </view>
+
+      <!-- 退出登录盒子 -->
+      <view class="logout-box">
+        <button class="logout-button" bind:tap="logout">退出登录</button>
+      </view>
+    </view>
+  </block>
+
+  <!-- 未登录显示登录按钮 -->
+  <block wx:if="{{!isLoggedIn}}">
+    <view class="login-section">
+      <!-- 登录按钮 -->
+    </view>
+  </block>
+</view>
+
+<!-- 昵称修改弹窗 -->
+<view class="nickname-modal" wx:if="{{showNicknameModal}}">
+  <view class="modal-content">
+    <view class="modal-title">修改昵称</view>
+    <input class="nickname-input" 
+           value="{{newNickname}}" 
+           bindinput="onNicknameInput" 
+           placeholder="请输入新昵称"
+           maxlength="12"/>
+    <view class="modal-buttons">
+      <button class="cancel-btn" bindtap="cancelNickname">取消</button>
+      <button class="confirm-btn" bindtap="confirmNickname">确定</button>
+    </view>
+  </view>
+</view>
+
+<!-- 添加剩余次数详情弹窗 -->
+<view class="remaining-modal" wx:if="{{showRemainingModal}}">
+  <view class="modal-content">
+    <view class="modal-title">剩余次数详情</view>
+    <view class="remaining-list">
+      <view class="remaining-item">
+        <text class="item-name">基础拉伸（日常保健）60分钟</text>
+        <text class="item-count">{{basic60Count || 0}}次</text>
+      </view>
+      <view class="remaining-item">
+        <text class="item-name">基础拉伸（日常保健）90分钟</text>
+        <text class="item-count">{{basic90Count || 0}}次</text>
+      </view>
+      <view class="remaining-item">
+        <text class="item-name">肌肉筋膜处理/运动训练（综合解决：体态调整，损伤修护，疼痛处理）60分钟</text>
+        <text class="item-count">{{advanced60Count || 0}}次</text>
+      </view>
+      <view class="remaining-item">
+        <text class="item-name">肌肉筋膜处理/运动训练 90分钟</text>
+        <text class="item-count">{{advanced90Count || 0}}次</text>
+      </view>
+    </view>
+    <button class="close-btn" bindtap="hideRemainingDetails">关闭</button>
+  </view>
+</view> 

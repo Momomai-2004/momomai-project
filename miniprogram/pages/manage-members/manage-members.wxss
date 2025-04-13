@@ -1,0 +1,603 @@
+.page-container {
+  min-height: 100vh;
+  background-color: #f1f8e9;
+  padding: 30rpx 20rpx;
+}
+
+.search-section {
+  background-color: white;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 4rpx 15rpx rgba(0, 0, 0, 0.05);
+}
+
+.search-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  margin-bottom: 30rpx;
+  color: #333;
+  position: relative;
+  padding-left: 20rpx;
+}
+
+.search-title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 6rpx;
+  height: 32rpx;
+  width: 6rpx;
+  background-color: #7bc768;
+  border-radius: 3rpx;
+}
+
+.search-header {
+  margin-bottom: 20rpx;
+}
+
+.search-type-toggle {
+  display: flex;
+  justify-content: space-between;
+  font-size: 28rpx;
+  color: #666;
+  padding: 0 10rpx;
+}
+
+.toggle-icon {
+  color: #7bc768;
+  font-size: 26rpx;
+}
+
+.search-input-area {
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  flex: 1;
+  height: 80rpx;
+  background-color: #f8f9fc;
+  border-radius: 40rpx;
+  padding: 0 30rpx;
+  font-size: 28rpx;
+  margin-right: 20rpx;
+  border: 1rpx solid #eee;
+}
+
+.search-btn {
+  width: 160rpx;
+  height: 80rpx;
+  background: linear-gradient(90deg, #6a9f5a, #7bc768);
+  color: white;
+  font-size: 28rpx;
+  border-radius: 40rpx;
+  box-shadow: 0 4rpx 10rpx rgba(123, 199, 104, 0.2);
+  transition: all 0.3s;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 2rpx 5rpx rgba(123, 199, 104, 0.2);
+}
+
+.search-btn-disabled {
+  background: linear-gradient(90deg, #ccc, #ddd);
+  color: #fff;
+  box-shadow: none;
+}
+
+.member-info-section {
+  background-color: white;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  box-shadow: 0 4rpx 15rpx rgba(0, 0, 0, 0.05);
+  animation: fadeIn 0.5s ease;
+  margin-bottom: 30rpx;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20rpx); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.info-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40rpx;
+}
+
+.avatar-container {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 30rpx;
+  border: 6rpx solid #f0f0f0;
+  box-shadow: 0 4rpx 15rpx rgba(0, 0, 0, 0.1);
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+}
+
+.basic-info {
+  flex: 1;
+}
+
+.name {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.phone {
+  font-size: 28rpx;
+  color: #999;
+}
+
+.balance-info {
+  display: flex;
+  margin-bottom: 40rpx;
+  background-color: #f8f9fc;
+  border-radius: 16rpx;
+  padding: 20rpx;
+}
+
+.balance-item {
+  flex: 1;
+  text-align: center;
+  padding: 20rpx 0;
+  position: relative;
+}
+
+.balance-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 20%;
+  height: 60%;
+  width: 1rpx;
+  background-color: #eee;
+}
+
+.label {
+  font-size: 28rpx;
+  color: #999;
+  margin-bottom: 10rpx;
+  display: block;
+}
+
+.value {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+.action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20rpx;
+}
+
+.action-btn {
+  flex: 1;
+  min-width: 180rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 28rpx;
+  margin: 0;
+  border-radius: 40rpx;
+  transition: all 0.3s;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.action-btn:active {
+  transform: scale(0.95);
+}
+
+.gift-btn {
+  background: linear-gradient(90deg, #ff9500, #ffb700);
+  color: white;
+  box-shadow: 0 4rpx 10rpx rgba(255, 149, 0, 0.2);
+}
+
+.view-btn {
+  background: linear-gradient(90deg, #1890ff, #36adff);
+  color: white;
+  box-shadow: 0 4rpx 10rpx rgba(24, 144, 255, 0.2);
+}
+
+.edit-btn {
+  background: linear-gradient(90deg, #6a9f5a, #7bc768);
+  color: white;
+  box-shadow: 0 4rpx 10rpx rgba(123, 199, 104, 0.2);
+}
+
+.small-btn {
+  min-width: 120rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 24rpx;
+  flex: none;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cancel-btn {
+  background: linear-gradient(90deg, #ff4d4f, #ff7875);
+  color: white;
+  box-shadow: 0 4rpx 10rpx rgba(255, 77, 79, 0.2);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 100rpx 0;
+  color: #999;
+  font-size: 28rpx;
+}
+
+/* 预约记录样式 */
+.appointment-list-section,
+.recent-members-section {
+  background-color: white;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 4rpx 15rpx rgba(0, 0, 0, 0.05);
+  animation: fadeIn 0.5s ease;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  margin-bottom: 30rpx;
+  color: #333;
+  position: relative;
+  padding-left: 20rpx;
+}
+
+.section-title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 6rpx;
+  height: 32rpx;
+  width: 6rpx;
+  background-color: #7bc768;
+  border-radius: 3rpx;
+}
+
+.appointment-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.appointment-item {
+  background-color: #f8f9fc;
+  border-radius: 12rpx;
+  padding: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s;
+}
+
+.appointment-item:active {
+  background-color: #f0f0f0;
+}
+
+.appointment-info {
+  flex: 1;
+}
+
+.service-name {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.appointment-time {
+  font-size: 26rpx;
+  color: #666;
+  margin-bottom: 6rpx;
+}
+
+.appointment-status {
+  font-size: 24rpx;
+  border-radius: 4rpx;
+  padding: 2rpx 10rpx;
+  display: inline-block;
+  margin-bottom: 6rpx;
+}
+
+/* 状态颜色 */
+.appointment-status.pending {
+  color: #8bc34a;
+  background-color: rgba(139, 195, 74, 0.1);
+}
+
+.appointment-status.confirmed {
+  color: #4caf50;
+  background-color: rgba(76, 175, 80, 0.1);
+}
+
+.appointment-status.completed {
+  color: #13c2c2;
+  background-color: rgba(19, 194, 194, 0.1);
+}
+
+.appointment-status.cancelled {
+  color: #f5222d;
+  background-color: rgba(245, 34, 45, 0.1);
+}
+
+.appointment-status.paid {
+  color: #388e3c;
+  background-color: rgba(56, 142, 60, 0.1);
+}
+
+.appointment-price {
+  font-size: 24rpx;
+  color: #ff4d4f;
+}
+
+.appointment-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10rpx;
+}
+
+/* 修改时间弹窗 */
+.modal-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.time-change-modal {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  border-radius: 24rpx 24rpx 0 0;
+  padding: 30rpx;
+  z-index: 1000;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+.modal-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 30rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.time-select-section {
+  margin-bottom: 30rpx;
+}
+
+.date-selector {
+  margin-bottom: 30rpx;
+}
+
+.picker-item {
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20rpx;
+  border: 1rpx solid #eee;
+  border-radius: 12rpx;
+  font-size: 28rpx;
+}
+
+.selected-value {
+  color: #1890ff;
+  font-weight: 500;
+}
+
+.time-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20rpx;
+}
+
+.time-slot {
+  width: calc((100% - 40rpx) / 3);
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f9fc;
+  border-radius: 12rpx;
+  font-size: 26rpx;
+  color: #666;
+  transition: all 0.3s;
+}
+
+.time-slot:active {
+  transform: scale(0.95);
+}
+
+.time-slot.selected {
+  background-color: #1890ff;
+  color: white;
+}
+
+.modal-footer {
+  display: flex;
+  gap: 20rpx;
+}
+
+.modal-btn {
+  width: 240rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 28rpx;
+  margin: 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-btn.cancel {
+  background-color: #f0f0f0;
+  color: #666;
+}
+
+.modal-btn.confirm {
+  background: linear-gradient(90deg, #1890ff, #36adff);
+  color: white;
+}
+
+/* 最近会员样式 */
+.recent-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.recent-item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  background-color: #f8f9fc;
+  border-radius: 12rpx;
+  transition: all 0.3s;
+}
+
+.recent-item:active {
+  background-color: #f0f0f0;
+}
+
+.recent-avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+  border: 4rpx solid #f0f0f0;
+}
+
+.recent-info {
+  flex: 1;
+}
+
+.recent-name {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 6rpx;
+}
+
+.recent-phone {
+  font-size: 24rpx;
+  color: #999;
+}
+
+/* 新增服务次数详情样式 */
+.service-times-detail {
+  margin: 20rpx 0;
+  background-color: #fff;
+  border-radius: 8rpx;
+  padding: 20rpx;
+  box-shadow: 0 2rpx 6rpx rgba(0, 0, 0, 0.05);
+}
+
+.detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 15rpx;
+}
+
+.detail-title {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+.toggle-icon {
+  font-size: 24rpx;
+  color: #7bc768;
+  padding: 4rpx 12rpx;
+  border: 1rpx solid #7bc768;
+  border-radius: 30rpx;
+  transition: all 0.3s;
+}
+
+.toggle-icon.expanded {
+  background-color: #7bc768;
+  color: #fff;
+}
+
+.service-times-content {
+  padding-top: 15rpx;
+  border-top: 1rpx solid #eee;
+}
+
+.service-category {
+  margin-bottom: 20rpx;
+}
+
+.category-title {
+  font-size: 26rpx;
+  color: #7bc768;
+  font-weight: 500;
+  margin-bottom: 10rpx;
+}
+
+.time-items {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -10rpx;
+}
+
+.time-item {
+  flex-basis: calc(50% - 20rpx);
+  margin: 10rpx;
+  background-color: #f9f9f9;
+  border-radius: 6rpx;
+  padding: 12rpx 15rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.time-label {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.time-value {
+  font-size: 26rpx;
+  color: #333;
+  font-weight: 500;
+} 

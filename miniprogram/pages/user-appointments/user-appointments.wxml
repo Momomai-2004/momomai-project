@@ -1,0 +1,84 @@
+<view class="appointment-container">
+  <view class="search-section">
+    <view class="section-title">预约查询</view>
+    <view class="search-bar">
+      <input 
+        type="number" 
+        placeholder="请输入用户手机号" 
+        bindinput="inputPhoneNumber"
+        maxlength="11"
+        value="{{phoneNumber}}"
+      />
+      <button class="search-btn" bindtap="searchAppointments" disabled="{{loading}}">
+        {{loading ? '查询中...' : '查询'}}
+      </button>
+    </view>
+  </view>
+
+  <view class="appointments-section" wx:if="{{showAppointmentsList}}">
+    <view class="section-header">
+      <view class="section-title">预约列表</view>
+      <view class="refresh-btn" bindtap="refreshAppointments">刷新</view>
+    </view>
+    
+    <!-- 标签切换 -->
+    <view class="tab-container">
+      <view class="tab {{currentTab === 'active' ? 'active' : ''}}" 
+            data-tab="active" 
+            bindtap="switchTab">有效预约</view>
+      <view class="tab {{currentTab === 'history' ? 'active' : ''}}" 
+            data-tab="history" 
+            bindtap="switchTab">历史预约</view>
+    </view>
+    
+    <!-- 加载中提示 -->
+    <view class="loading-container" wx:if="{{loading}}">
+      <view class="loading-icon"></view>
+      <text>加载中...</text>
+    </view>
+    
+    <view class="appointments-list" wx:else>
+      <block wx:if="{{appointments.length > 0}}">
+        <view class="appointment-item" wx:for="{{appointments}}" wx:key="_id">
+          <view class="appointment-header">
+            <text class="service-name">{{item.serviceName}}</text>
+            <text class="status {{item.rawStatus}}">{{item.status}}</text>
+          </view>
+          
+          <view class="appointment-info">
+            <view class="info-row">
+              <text class="label">预约时间</text>
+              <text class="value">{{item.date}} {{item.timeSlot}}</text>
+            </view>
+            <view class="info-row">
+              <text class="label">金额</text>
+              <text class="value">¥{{item.price}}</text>
+            </view>
+          </view>
+          
+          <view class="appointment-actions" wx:if="{{item.rawStatus !== 'completed' && item.rawStatus !== 'cancelled'}}">
+            <button 
+              class="action-btn verify" 
+              bindtap="verifyAppointment" 
+              data-id="{{item._id}}"
+            >核销预约</button>
+            <button 
+              class="action-btn cancel" 
+              bindtap="cancelAppointment" 
+              data-id="{{item._id}}"
+            >取消预约</button>
+            <button 
+              class="action-btn change" 
+              bindtap="changeAppointmentTime" 
+              data-id="{{item._id}}"
+            >修改时间</button>
+          </view>
+        </view>
+      </block>
+      
+      <view class="empty-tip" wx:else>
+        <text>没有找到{{currentTab === 'active' ? '有效' : '历史'}}预约记录</text>
+      </view>
+    </view>
+  </view>
+</view> 

@@ -1,0 +1,609 @@
+/* 主容器 */
+.main-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f5f5f5;
+}
+
+/* 通用盒子样式 */
+.box {
+  width: 100%;
+  background: #fff;
+  margin-bottom: 1rpx;
+  box-sizing: border-box;
+}
+
+/* 步骤指示器盒子 */
+.step-box {
+  padding: 30rpx 20rpx;
+}
+
+.step-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.step-num {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  background: #e0e0e0;
+  color: #fff;
+  font-size: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10rpx;
+}
+
+.step.active .step-num {
+  background: #8BC34A;
+}
+
+.step-text {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.step.active .step-text {
+  color: #8BC34A;
+}
+
+.step-line {
+  width: 100rpx;
+  height: 2rpx;
+  background: #e0e0e0;
+  margin: 0 20rpx;
+  margin-bottom: 30rpx;
+}
+
+/* 服务选择盒子 */
+.service-box {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20rpx;
+}
+
+.service-category {
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.category-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.category-subtitle {
+  font-size: 26rpx;
+  color: #666;
+  margin-bottom: 20rpx;
+}
+
+.service-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.service-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx;
+  background: #fff;
+  border-radius: 8rpx;
+  margin-bottom: 20rpx;
+  border: 2rpx solid #eee;
+  transition: all 0.3s;
+}
+
+.service-item.selected {
+  background: #f0f9eb;
+  border-color: #8BC34A;
+}
+
+.service-info {
+  flex: 1;
+}
+
+.service-name {
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 8rpx;
+  display: block;
+}
+
+.service-price {
+  font-size: 32rpx;
+  color: #ff4d4f;
+  font-weight: bold;
+}
+
+.select-btn {
+  width: 120rpx;
+  height: 56rpx;
+  line-height: 56rpx;
+  text-align: center;
+  border: 1rpx solid #8BC34A;
+  border-radius: 6rpx;
+  font-size: 26rpx;
+  color: #8BC34A;
+  background: #fff;
+  transition: all 0.3s;
+}
+
+.select-btn.selected {
+  background: #8BC34A;
+  color: #fff;
+}
+
+/* 底部信息栏 */
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100rpx;
+  padding: 0 30rpx calc(env(safe-area-inset-bottom) + 20rpx);
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1rpx solid #eee;
+}
+
+.total-info {
+  flex: 1;
+}
+
+.total-duration {
+  font-size: 26rpx;
+  color: #666;
+  margin-right: 20rpx;
+}
+
+.total-price {
+  font-size: 32rpx;
+  color: #ff4d4f;
+  font-weight: bold;
+}
+
+.book-btn {
+  width: 200rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  border-radius: 6rpx;
+  font-size: 28rpx;
+}
+
+.book-btn.active {
+  background: #8BC34A;
+  color: #fff;
+}
+
+.book-btn.disabled {
+  background: #e0e0e0;
+  color: #999;
+  pointer-events: none;
+}
+
+/* 支付弹窗样式 */
+.payment-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+}
+
+.modal-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-radius: 24rpx 24rpx 0 0;
+  padding: 40rpx 30rpx calc(env(safe-area-inset-bottom) + 40rpx);
+}
+
+.modal-title {
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 40rpx;
+}
+
+.payment-options {
+  margin-bottom: 40rpx;
+}
+
+.payment-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx;
+  background: #fff;
+  border: 2rpx solid #eee;
+  border-radius: 12rpx;
+  margin-bottom: 20rpx;
+  transition: all 0.3s;
+}
+
+.payment-option.selected {
+  background: #f0f9eb;
+  border-color: #8BC34A;
+}
+
+.option-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.option-title {
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 8rpx;
+}
+
+.option-desc {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.option-status {
+  font-size: 26rpx;
+  color: #8BC34A;
+}
+
+.modal-footer {
+  display: flex;
+  gap: 20rpx;
+}
+
+.modal-btn {
+  flex: 1;
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+}
+
+.modal-btn.cancel {
+  background: #f5f5f5;
+  color: #666;
+}
+
+.modal-btn.confirm {
+  background: #e0e0e0;
+  color: #999;
+}
+
+.modal-btn.confirm.active {
+  background: #8BC34A;
+  color: #fff;
+}
+
+.page-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 120rpx;
+  background: #f8f8f8;
+}
+
+.booking-info {
+  background: white;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+}
+
+.label {
+  color: #666;
+  font-size: 28rpx;
+}
+
+.value {
+  color: #333;
+  font-size: 28rpx;
+  font-weight: 500;
+}
+
+.service-category {
+  margin-bottom: 20rpx;
+  background: white;
+}
+
+.category-title {
+  padding: 20rpx 30rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  border-bottom: 1rpx solid #eee;
+}
+
+.service-list {
+  padding: 20rpx;
+}
+
+.service-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  border-radius: 12rpx;
+  background: #f8f8f8;
+}
+
+.service-item.selected {
+  background: #e8f7ed;
+  border: 2rpx solid #07c160;
+}
+
+.service-main {
+  flex: 1;
+}
+
+.service-name {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 8rpx;
+}
+
+.service-duration {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.service-price {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #07c160;
+}
+
+.confirm-btn {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100rpx;
+  background: #ccc;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32rpx;
+  width: 100%;
+}
+
+.confirm-btn.active {
+  background: #07c160;
+}
+
+/* 支付选项弹窗 */
+.payment-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+}
+
+.payment-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.payment-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  border-radius: 24rpx 24rpx 0 0;
+  padding: 30rpx;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.payment-title {
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 30rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.payment-option {
+  display: flex;
+  align-items: center;
+  padding: 30rpx 0;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.payment-option.disabled {
+  opacity: 0.5;
+}
+
+.payment-icon {
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.payment-icon image {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.wechat-icon {
+  background: #07c160;
+  border-radius: 50%;
+}
+
+.wallet-icon {
+  background: #ff9500;
+  border-radius: 50%;
+}
+
+.times-icon {
+  background: #5ac8fa;
+  border-radius: 50%;
+}
+
+.payment-name {
+  flex: 1;
+  font-size: 30rpx;
+}
+
+.payment-info {
+  font-size: 26rpx;
+  color: #999;
+  margin-right: 20rpx;
+}
+
+.payment-arrow {
+  color: #ccc;
+  font-size: 30rpx;
+}
+
+.payment-close {
+  margin-top: 40rpx;
+  text-align: center;
+  padding: 20rpx 0;
+  color: #999;
+  font-size: 30rpx;
+}
+
+/* 管理员功能 */
+.admin-section {
+  margin-top: 40rpx;
+  padding: 0 30rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.admin-btn {
+  background-color: #ffd591;
+  color: #333;
+  padding: 16rpx 30rpx;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  text-align: center;
+}
+
+/* 详情按钮样式 */
+.detail-btn {
+  margin-left: 10rpx;
+  color: #3d7eff;
+  font-size: 24rpx;
+}
+
+/* 次数详情弹窗 */
+.sessions-detail-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+}
+
+.sessions-detail-modal .modal-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.sessions-detail-modal .modal-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: calc(100% - 70rpx);
+  background: #fff;
+  border-radius: 20rpx 20rpx 0 0;
+  padding: 40rpx 30rpx;
+  margin: 0 5rpx;
+}
+
+.sessions-list {
+  margin: 30rpx 0;
+}
+
+.session-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx 0;
+  border-bottom: 1px solid #eee;
+}
+
+.session-name {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.session-count {
+  font-size: 28rpx;
+  color: #3d7eff;
+  font-weight: bold;
+}
+
+.modal-close {
+  text-align: center;
+  padding: 20rpx 0;
+  color: #999;
+  font-size: 28rpx;
+  margin-top: 30rpx;
+} 

@@ -1,0 +1,42 @@
+<view class="page-container">
+  <!-- 欢迎信息盒子 -->
+  <view class="welcome-box">
+    <text class="welcome-text">欢迎，{{staffName}}</text>
+    <view class="staff-info">
+      <text>工号: {{staffInfo.staff_id || '未知'}}</text>
+      <text wx:if="{{isAdmin}}" class="admin-badge">管理员</text>
+    </view>
+    <view class="login-status">
+      <view class="status-dot online"></view>
+      <text class="status-text">在线</text>
+    </view>
+  </view>
+
+  <!-- 功能盒子区域 -->
+  <view class="function-boxes">
+    <view class="function-box" bindtap="viewBookings">
+      <image class="function-icon" src="/images/calendar.png"></image>
+      <text>查看预约</text>
+    </view>
+
+    <view class="function-box" bindtap="manageMembers">
+      <image class="function-icon" src="/images/user.png"></image>
+      <text>管理会员</text>
+    </view>
+    
+    <view class="function-box" bindtap="setRestTime">
+      <image class="function-icon" src="/images/rest.png"></image>
+      <text>设置休息</text>
+    </view>
+    
+    <view class="function-box" bindtap="giftService">
+      <image class="function-icon" src="/images/gift.png"></image>
+      <text>赠送项目</text>
+    </view>
+  </view>
+
+  <!-- 底部导航栏大盒子 -->
+  <view class="bottom-nav">
+    <button class="logout-btn" bindtap="logout">退出登录</button>
+  </view>
+</view> 

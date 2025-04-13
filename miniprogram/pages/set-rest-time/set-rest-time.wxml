@@ -1,0 +1,57 @@
+<view class="page-container">
+  <view class="rest-time-section">
+    <view class="section-title">设置休息时间</view>
+    
+    <view class="time-section">
+      <view class="time-label">开始时间</view>
+      <view class="datetime-picker">
+        <picker 
+          mode="date" 
+          value="{{startDate}}"
+          start="{{startDate}}"
+          bindchange="bindDateChange"
+        >
+          <view class="picker-item">
+            <text>{{startDate}}</text>
+            <text class="arrow">▼</text>
+          </view>
+        </picker>
+        
+        <picker 
+          mode="time" 
+          value="{{startTime}}"
+          bindchange="bindTimeChange"
+        >
+          <view class="picker-item">
+            <text>{{startTime}}</text>
+            <text class="arrow">▼</text>
+          </view>
+        </picker>
+      </view>
+    </view>
+    
+    <view class="duration-section">
+      <view class="duration-label">休息时长</view>
+      <view class="duration-options">
+        <view 
+          wx:for="{{restOptions}}" 
+          wx:key="value"
+          class="option-item {{selectedOption === item.value ? 'selected' : ''}}"
+          bindtap="selectRestOption"
+          data-value="{{item.value}}"
+        >
+          {{item.label}}
+        </view>
+      </view>
+    </view>
+    
+    <view class="notice-section">
+      <text class="notice-text">注意: 设置休息时间后，该时间段内将无法被预约</text>
+    </view>
+    
+    <view class="action-buttons">
+      <button class="cancel-btn" bindtap="navigateBack">取消</button>
+      <button class="confirm-btn" bindtap="confirmRestTime">确认设置</button>
+    </view>
+  </view>
+</view> 

@@ -1,0 +1,369 @@
+.recharge-container {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  position: relative;
+  padding-bottom: 120rpx;
+}
+
+.scrollable-content {
+  height: calc(100vh - 120rpx);
+  width: 100%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  box-sizing: border-box;
+}
+
+/* 自定义充值部分 */
+.custom-recharge-box {
+  width: 100%;
+  margin: 0 0 30rpx;
+  background: #fff;
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+
+.input-box {
+  margin-bottom: 30rpx;
+}
+
+.input-label {
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 20rpx;
+  text-align: center;
+}
+
+.amount-input {
+  width: 100%;
+  height: 88rpx;
+  background: #f8f8f8;
+  border-radius: 8rpx;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.recharge-button-box {
+  width: 100%;
+}
+
+.recharge-button {
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  background: #07c160;
+  color: #fff;
+  border-radius: 8rpx;
+  font-size: 32rpx;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 课程套餐部分 */
+.package-box {
+  width: 100%;
+  margin: 0;
+}
+
+.course-type-box {
+  width: 100%;
+  background: #fff;
+  margin-bottom: 30rpx;
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+
+.course-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  padding-bottom: 20rpx;
+  border-bottom: 1rpx solid #eee;
+  text-align: center;
+}
+
+.duration-box {
+  margin-top: 30rpx;
+  background: #fff;
+  padding: 30rpx;
+  height: calc(88rpx * 3 + 82rpx + 70rpx +10rpx); /* 三个选项高度 + 选项间距 + 标题及内边距 + 额外高度 */
+  box-sizing: border-box;
+}
+
+.duration-title {
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 20rpx;
+  text-align: center;
+  font-weight: bold;
+  font-size: 32rpx;
+}
+
+.session-box {
+  width: 100%;
+}
+
+.session-item {
+  width: 100%;
+  height: 98rpx;
+  line-height: 98rpx;
+  background: #f8f8f8;
+  border-radius: 8rpx;
+  margin-bottom: 16rpx;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  color: #333;
+  text-align: center;
+}
+
+.session-item.selected {
+  background: rgba(7, 193, 96, 0.1);
+  color: #07c160;
+  border: 1rpx solid #07c160;
+}
+
+.session-item:last-child {
+  margin-bottom: 0;
+}
+
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120rpx;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30rpx;
+  box-shadow: 0 -2rpx 10rpx rgba(0, 0, 0, 0.05);
+  z-index: 100;
+  box-sizing: border-box;
+}
+
+.price-info {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.price {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #07c160;
+}
+
+.confirm-button {
+  width: 240rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  background: #07c160;
+  color: #fff;
+  border-radius: 40rpx;
+  font-size: 32rpx;
+  text-align: center;
+}
+
+/* 自定义充值部分 */
+.custom-recharge {
+  padding: 30rpx 20rpx;
+  background: #fff;
+  border-radius: 8rpx;
+  margin: 20rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 30rpx;
+}
+
+.input-area {
+  display: flex;
+  align-items: center;
+  border-bottom: 2rpx solid #eee;
+  padding: 20rpx 0;
+  margin-bottom: 30rpx;
+}
+
+.currency {
+  font-size: 40rpx;
+  color: #333;
+  margin-right: 20rpx;
+}
+
+/* 充值按钮 */
+.recharge-btn {
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  background: #07c160;
+  color: #fff;
+  font-size: 32rpx;
+  border-radius: 44rpx;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 套餐部分 */
+.package-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300rpx, 1fr));
+  gap: 20rpx;
+  padding: 20rpx;
+}
+
+.package-item {
+  background: #fff;
+  border-radius: 8rpx;
+  padding: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.package-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.package-subtitle {
+  font-size: 26rpx;
+  color: #666;
+  margin-bottom: 30rpx;
+}
+
+.package-options {
+  display: flex;
+  gap: 20rpx;
+}
+
+/* 套餐选择按钮 */
+.package-btn {
+  width: 100%;
+  padding: 30rpx;
+  background: #fff;
+  border-radius: 12rpx;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.package-btn.selected {
+  background: #e8f7ef;
+  border-color: #07c160;
+}
+
+.session-count {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.package-price {
+  font-size: 28rpx;
+  color: #07c160;
+}
+
+.duration-block {
+  margin-bottom: 40rpx;
+}
+
+/* 续费优惠说明 */
+.renewal-info {
+  padding: 20rpx;
+  margin: 20rpx;
+  background: #f8f8f8;
+  border-radius: 8rpx;
+}
+
+.info-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+
+.info-item {
+  font-size: 26rpx;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 10rpx;
+}
+
+/* 确保底部有足够空间 */
+.recharge-container {
+  padding-bottom: 100rpx;
+}
+
+page {
+  background: #f8f8f8;
+}
+
+.container {
+  padding-top: env(safe-area-inset-top);
+}
+
+/* 主容器 */
+.main-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f5f5f5;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.total-box {
+  flex: 1;
+}
+
+.total-label {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.total-price {
+  font-size: 36rpx;
+  color: #ff4d4f;
+  font-weight: bold;
+}
+
+.confirm-btn {
+  width: 240rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  border-radius: 6rpx;
+  font-size: 28rpx;
+  margin-left: 30rpx;
+}
+
+.confirm-btn.active {
+  background-color: #7bc768; /* 草绿色 */
+  color: white;
+}
+
+.confirm-btn.disabled {
+  background: #e0e0e0;
+  color: #999;
+  pointer-events: none;
+}
+
+.bottom-bar button {
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} 

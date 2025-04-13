@@ -1,0 +1,150 @@
+.page-container {
+  min-height: 100vh;
+  background-color: #f8f9fc;
+  padding: 30rpx 20rpx;
+}
+
+.rest-time-section {
+  background-color: white;
+  border-radius: 16rpx;
+  padding: 40rpx 30rpx;
+  box-shadow: 0 4rpx 15rpx rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+  font-size: 36rpx;
+  font-weight: 600;
+  margin-bottom: 40rpx;
+  color: #333;
+  text-align: center;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -15rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60rpx;
+  height: 6rpx;
+  background-color: #7bc768;
+  border-radius: 3rpx;
+}
+
+.time-section {
+  margin-bottom: 40rpx;
+}
+
+.time-label, .duration-label {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 20rpx;
+  display: block;
+}
+
+.datetime-picker {
+  display: flex;
+  gap: 20rpx;
+}
+
+.picker-item {
+  flex: 1;
+  height: 80rpx;
+  background-color: #f8f9fc;
+  border-radius: 10rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30rpx;
+  font-size: 28rpx;
+  color: #333;
+  border: 1rpx solid #eee;
+}
+
+.arrow {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.duration-section {
+  margin-bottom: 40rpx;
+}
+
+.duration-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20rpx;
+}
+
+.option-item {
+  width: calc(50% - 10rpx);
+  height: 80rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f9fc;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  color: #555;
+  border: 1rpx solid #eee;
+  transition: all 0.3s;
+  text-align: center;
+}
+
+.option-item.selected {
+  background-color: #7bc768;
+  color: white;
+  border-color: #7bc768;
+  box-shadow: 0 4rpx 10rpx rgba(123, 199, 104, 0.2);
+  transform: scale(1.02);
+}
+
+.notice-section {
+  padding: 20rpx;
+  background-color: #fff4e6;
+  border-radius: 10rpx;
+  margin-bottom: 40rpx;
+}
+
+.notice-text {
+  font-size: 26rpx;
+  color: #ff9500;
+  line-height: 1.5;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 20rpx;
+  margin-top: 40rpx;
+}
+
+.cancel-btn, .confirm-btn {
+  flex: 1;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 30rpx;
+  border-radius: 40rpx;
+  transition: all 0.3s;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cancel-btn {
+  background-color: #f8f9fc;
+  color: #666;
+  border: 1rpx solid #ddd;
+}
+
+.confirm-btn {
+  background: linear-gradient(90deg, #6a9f5a, #7bc768);
+  color: white;
+  box-shadow: 0 4rpx 10rpx rgba(123, 199, 104, 0.2);
+}
+
+.confirm-btn:active, .cancel-btn:active {
+  transform: scale(0.95);
+} 

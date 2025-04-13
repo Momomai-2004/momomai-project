@@ -1,0 +1,54 @@
+<view class="verification-container">
+  <!-- 核销方式选择 -->
+  <view class="verify-methods">
+    <view class="method-item {{verifyMethod === 'code' ? 'active' : ''}}" 
+          bindtap="switchMethod" 
+          data-method="code">
+      <image class="method-icon" src="/images/code-icon.png" mode="aspectFit"></image>
+      <text>券码核销</text>
+    </view>
+    <view class="method-item {{verifyMethod === 'scan' ? 'active' : ''}}" 
+          bindtap="switchMethod" 
+          data-method="scan">
+      <image class="method-icon" src="/images/scan-icon.png" mode="aspectFit"></image>
+      <text>扫码核销</text>
+    </view>
+  </view>
+
+  <!-- 券码输入区域 -->
+  <view class="code-input-area" wx:if="{{verifyMethod === 'code'}}">
+    <view class="input-box">
+      <input type="text" 
+             value="{{verifyCode}}"
+             bindinput="onCodeInput"
+             placeholder="请输入核销码"
+             maxlength="8"/>
+      <button class="verify-btn" bindtap="verifyCode">核销</button>
+    </view>
+  </view>
+
+  <!-- 扫码区域 -->
+  <view class="scan-area" wx:if="{{verifyMethod === 'scan'}}">
+    <button class="scan-btn" bindtap="scanCode">
+      <image src="/images/scan-big.png" mode="aspectFit"></image>
+      <text>点击扫码</text>
+    </button>
+  </view>
+
+  <!-- 核销记录 -->
+  <view class="verify-history">
+    <view class="history-title">最近核销记录</view>
+    <view class="history-list" wx:if="{{verifyHistory.length > 0}}">
+      <view class="history-item" wx:for="{{verifyHistory}}" wx:key="id">
+        <view class="history-info">
+          <view class="service-name">{{item.serviceName}}</view>
+          <view class="verify-time">{{item.verifyTime}}</view>
+        </view>
+        <view class="verify-status">已核销</view>
+      </view>
+    </view>
+    <view class="empty-history" wx:else>
+      <text>暂无核销记录</text>
+    </view>
+  </view>
+</view> 

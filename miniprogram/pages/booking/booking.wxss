@@ -1,0 +1,1158 @@
+/* 主容器 */
+.main-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f5f5f5;
+  padding-bottom: env(safe-area-inset-bottom); /* 适配底部安全区域 */
+}
+
+/* 通用盒子样式 */
+.box {
+  width: 100%;
+  background: #fff;
+  margin-bottom: 1rpx;
+  box-sizing: border-box;
+}
+
+/* 步骤指示器盒子 */
+.step-box {
+  padding: 30rpx 20rpx;
+}
+
+.step-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 理疗师信息盒子 */
+.therapist-info-box {
+  padding: 20rpx;
+}
+
+.therapist-info {
+  display: flex;
+  align-items: center;
+}
+
+.therapist-avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+
+.therapist-details {
+  flex: 1;
+}
+
+.therapist-name {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.therapist-specialties {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.specialty {
+  font-size: 24rpx;
+  color: #666;
+  background: #f5f5f5;
+  padding: 4rpx 12rpx;
+  border-radius: 20rpx;
+  margin-right: 10rpx;
+  margin-bottom: 10rpx;
+}
+
+/* 日期选择器盒子 */
+.date-box {
+  padding: 20rpx 0;
+}
+
+.date-scroll {
+  width: 100%;
+}
+
+.date-list {
+  display: inline-flex;
+  padding: 0 20rpx;
+}
+
+.date-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16rpx 30rpx;
+  margin-right: 20rpx;
+  border-radius: 8rpx;
+  background: #f5f5f5;
+}
+
+.date-item.selected {
+  background: #8BC34A;
+  color: #fff;
+}
+
+/* 时间选择盒子 */
+.time-box {
+  flex: 1;
+  padding: 20rpx;
+  overflow-y: auto; /* 允许内容滚动 */
+}
+
+.time-slots {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20rpx;
+  flex: 1;
+}
+
+.time-slot {
+  width: 23%; /* 4个一行 */
+  height: 80rpx;
+  margin: 1%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f8f8;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+}
+
+.time-slot.selected {
+  background: #07c160;
+  color: white;
+}
+
+.time-slot.disabled,
+.time-slot.booked {
+  background: #eee;
+  color: #999;
+  pointer-events: none;
+}
+
+.time-slot.booked {
+  background: #ffd8d8; /* 已预约的时间段显示特殊颜色 */
+}
+
+/* 底部信息栏 */
+.bottom-box {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20rpx;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1rpx solid #eee;
+  padding-bottom: calc(20rpx + env(safe-area-inset-bottom)); /* 适配底部安全区域 */
+  z-index: 100;
+}
+
+.total-info {
+  flex: 1;
+}
+
+.total-duration {
+  font-size: 26rpx;
+  color: #666;
+  margin-right: 20rpx;
+}
+
+.total-price {
+  font-size: 32rpx;
+  color: #ff4d4f;
+  font-weight: bold;
+}
+
+.book-btn {
+  width: 200rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  background: #8BC34A;
+  color: #fff;
+  font-size: 28rpx;
+  border-radius: 6rpx;
+}
+
+/* 整体容器 */
+.container {
+  min-height: 100vh;
+  padding: calc(20rpx + env(safe-area-inset-top)) 0 calc(120rpx + env(safe-area-inset-bottom));
+  background: #f8f8f8;
+}
+
+/* 理疗师信息卡片样式 */
+.therapist-card {
+  margin-top: env(safe-area-inset-top);
+  padding: 40rpx 30rpx;
+  background: #ffffff;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+  width:100%;
+}
+
+.therapist-title {
+  font-size: 28rpx;
+  color: #666666;
+  background: #f8f8f8;
+  padding: 8rpx 24rpx;
+  border-radius: 24rpx;
+}
+
+/* 日期选择器样式 */
+.date-selector {
+  background: #ffffff;
+  border-bottom: 1rpx solid #eee;
+  width: 100%;
+}
+
+/* 步骤指示器 */
+.step-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30rpx 20rpx;
+  background: #fff;
+  margin-bottom: 1rpx; /* 添加细线分隔 */
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.step-num {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  background: #e0e0e0;
+  color: #fff;
+  font-size: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10rpx;
+}
+
+.step-text {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.step.active .step-num {
+  background: #8BC34A;
+}
+
+.step.active .step-text {
+  color: #8BC34A;
+}
+
+.step-line {
+  width: 100rpx;
+  height: 2rpx;
+  background: #e0e0e0;
+  margin: 0 20rpx;
+  margin-bottom: 30rpx; /* 调整线的位置以对齐圆点 */
+}
+
+/* 日期选择器 */
+.date-scroll {
+  background: #fff;
+  padding: 20rpx 0;
+  white-space: nowrap;
+}
+
+.date-list {
+  display: inline-flex;
+  padding: 0 20rpx;
+}
+
+.date-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16rpx 30rpx;
+  margin-right: 20rpx;
+  border-radius: 8rpx;
+  background: #f5f5f5;
+}
+
+.date-item.selected {
+  background: #8BC34A;
+  color: #fff;
+}
+
+.day {
+  font-size: 24rpx;
+  margin-bottom: 6rpx;
+}
+
+.date {
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+/* 添加滑动提示动画 */
+@keyframes slideHint {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(10rpx); }
+  100% { transform: translateX(0); }
+}
+
+.date-scroll::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 40rpx;
+  background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.05));
+  pointer-events: none;  /* 确保不影响滑动操作 */
+}
+
+/* 底部按钮样式 */
+.bottom-button {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 30rpx;
+  background-color: #ffffff;
+  box-shadow: 0 -2rpx 10rpx rgba(0, 0, 0, 0.1);
+}
+
+.next-btn {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100rpx;
+  background: #ccc;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32rpx;
+  width: 100%;
+}
+
+.next-btn.active {
+  background: #07c160;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin: 30rpx 0 20rpx;
+}
+
+/* 预约时间选择样式 */
+.booking-section {
+  background: #fff;
+  padding: 20rpx;
+  border-radius: 12rpx;
+  margin-bottom: 20rpx;
+}
+
+.date-picker {
+  margin-bottom: 20rpx;
+}
+
+.date-picker-value {
+  height: 70rpx;
+  line-height: 70rpx;
+  padding: 0 20rpx;
+  border: 1rpx solid #e0e0e0;
+  border-radius: 6rpx;
+  font-size: 26rpx;
+}
+
+.picker-content {
+  padding: 20rpx;
+  background: #f8f8f8;
+  border-radius: 8rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.picker-label {
+  color: #666;
+  font-size: 28rpx;
+}
+
+.picker-value {
+  color: #333;
+  font-size: 28rpx;
+}
+
+/* 服务项目列表样式 */
+.services-section {
+  background: #fff;
+  padding: 20rpx;
+  border-radius: 12rpx;
+  margin-bottom: 20rpx;
+}
+
+.services-section.hidden {
+  display: none;
+}
+
+/* 预约信息样式 */
+.booking-info {
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.info-item:last-child {
+  border-bottom: none;
+}
+
+.label {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.value {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: bold;
+}
+
+.value.price {
+  color: #ff6b6b;
+  font-size: 32rpx;
+}
+
+/* 支付方式选择样式 */
+.payment-section {
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+}
+
+.payment-options {
+  display: flex;
+  flex-direction: column;
+}
+
+.payment-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx;
+  background: #f5f5f5;
+  border-radius: 8rpx;
+  margin-bottom: 20rpx;
+}
+
+.payment-option.selected {
+  background: #e8f5e9;
+}
+
+.option-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.option-title {
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.option-desc {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.option-check {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 20rpx;
+  border: 2rpx solid #ddd;
+}
+
+.payment-option.selected .option-check {
+  background: #4caf50;
+  border-color: #4caf50;
+}
+
+/* 预约提示样式 */
+.booking-notice {
+  background: #fff7e6;
+  padding: 20rpx;
+  border-radius: 8rpx;
+  margin-bottom: 120rpx;
+}
+
+.notice-text {
+  font-size: 24rpx;
+  color: #ff9800;
+}
+
+.page-wrapper {
+  min-height: 100vh;
+  background: #f8f8f8;
+  padding-bottom: 120rpx;
+}
+
+.arrow {
+  color: #999;
+  margin: 0 20rpx;
+}
+
+.booking-step {
+  margin-top: 20rpx;
+}
+
+.time-section {
+  margin-top: 20rpx;
+  padding: 30rpx;
+  background: #fff;
+}
+
+.time-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20rpx;
+}
+
+.time-item {
+  text-align: center;
+  padding: 20rpx;
+  background: #f8f8f8;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+}
+
+.time-item.selected {
+  background: #07c160;
+  color: #fff;
+}
+
+.time-item.disabled {
+  color: #999;
+  background: #f0f0f0;
+}
+
+.service-section {
+  background: #fff;
+  padding: 30rpx;
+}
+
+.service-info {
+  flex: 1;
+}
+
+.service-name {
+  font-size: 28rpx;
+  font-weight: bold;
+  margin-bottom: 8rpx;
+  display: block;
+}
+
+.service-duration {
+  font-size: 24rpx;
+  color: #666;
+  margin-right: 20rpx;
+}
+
+.service-price {
+  font-size: 32rpx;
+  color: #07c160;
+}
+
+.select-btn {
+  width: 120rpx;
+  height: 56rpx;
+  line-height: 56rpx;
+  text-align: center;
+  border: 1rpx solid #8BC34A;
+  border-radius: 6rpx;
+  font-size: 26rpx;
+  color: #8BC34A;
+}
+
+.select-btn.selected {
+  background: #8BC34A;
+  color: #fff;
+}
+
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100rpx;
+  padding: 0 30rpx calc(env(safe-area-inset-bottom) + 20rpx);
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 -2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.selected-info {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.total-info {
+  flex: 1;
+}
+
+.total-duration {
+  font-size: 26rpx;
+  color: #666;
+  margin-right: 20rpx;
+}
+
+.total-price {
+  font-size: 32rpx;
+  color: #ff4d4f;
+  font-weight: bold;
+}
+
+.book-btn {
+  width: 200rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  background: #8BC34A;
+  color: #fff;
+  font-size: 28rpx;
+  border-radius: 6rpx;
+}
+
+/* 支付相关样式 */
+.payment-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+}
+
+.modal-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-radius: 24rpx 24rpx 0 0;
+  padding: 30rpx;
+}
+
+.modal-title {
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 30rpx;
+}
+
+.payment-options {
+  margin-bottom: 30rpx;
+}
+
+.payment-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx;
+  border: 1rpx solid #e0e0e0;
+  border-radius: 8rpx;
+  margin-bottom: 20rpx;
+}
+
+.payment-option.selected {
+  border-color: #8BC34A;
+  background: #f0f9eb;
+}
+
+.balance {
+  color: #999;
+  font-size: 26rpx;
+}
+
+.modal-footer {
+  display: flex;
+  gap: 20rpx;
+}
+
+.cancel-btn, .confirm-btn {
+  flex: 1;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  border-radius: 6rpx;
+  font-size: 28rpx;
+}
+
+.cancel-btn {
+  background: #f5f5f5;
+  color: #333;
+}
+
+.confirm-btn {
+  background: #8BC34A;
+  color: #fff;
+}
+
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20rpx;
+  height: 88rpx;
+  background-color: #ffffff;
+  border-bottom: 1rpx solid #eee;
+  padding-top: env(safe-area-inset-top);
+  z-index: 100;
+}
+
+.progress-step {
+  font-size: 28rpx;
+  color: #999;
+}
+
+.progress-step.active {
+  color: #333;
+  font-weight: bold;
+}
+
+.progress-arrow {
+  margin: 0 20rpx;
+  color: #999;
+  font-size: 24rpx;
+}
+
+.booking-header {
+  padding: 30rpx 20rpx;
+  background: #fff;
+}
+
+/* 服务项目列表 */
+.service-list {
+  background: #fff;
+  padding: 0 20rpx;
+}
+
+.service-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx 0;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.service-info {
+  flex: 1;
+}
+
+.service-name {
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 8rpx;
+  display: block;
+}
+
+.service-duration {
+  font-size: 24rpx;
+  color: #999;
+  margin-right: 20rpx;
+}
+
+.service-price {
+  font-size: 28rpx;
+  color: #ff4d4f;
+  font-weight: bold;
+}
+
+.select-btn {
+  width: 120rpx;
+  height: 56rpx;
+  line-height: 56rpx;
+  text-align: center;
+  border: 1rpx solid #8BC34A;
+  border-radius: 6rpx;
+  font-size: 26rpx;
+  color: #8BC34A;
+}
+
+.select-btn.selected {
+  background: #8BC34A;
+  color: #fff;
+}
+
+/* 服务选择弹窗 */
+.service-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+}
+
+.modal-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-radius: 24rpx 24rpx 0 0;
+  padding: 30rpx;
+}
+
+.modal-title {
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 30rpx;
+}
+
+/* 为底部信息栏留出空间 */
+.main-container {
+  padding-bottom: calc(120rpx + env(safe-area-inset-bottom));
+}
+
+/* 服务列表样式 */
+.service-box {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.service-list {
+  padding: 20rpx;
+}
+
+.service-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx;
+  background: #fff;
+  margin-bottom: 20rpx;
+  border-radius: 8rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+}
+
+/* 底部按钮样式 */
+.next-btn, .book-btn {
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  border-radius: 8rpx;
+  font-size: 30rpx;
+}
+
+.next-btn.active, .book-btn.active {
+  background: #8BC34A;
+  color: #fff;
+}
+
+.next-btn.disabled, .book-btn.disabled {
+  background: #e0e0e0;
+  color: #999;
+  pointer-events: none;
+}
+
+/* 支付弹窗样式 */
+.payment-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+}
+
+.modal-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-radius: 24rpx 24rpx 0 0;
+  padding: 30rpx;
+}
+
+.payment-options {
+  margin: 30rpx 0;
+}
+
+.payment-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx;
+  border: 1rpx solid #e0e0e0;
+  border-radius: 8rpx;
+  margin-bottom: 20rpx;
+}
+
+.payment-option.selected {
+  border-color: #8BC34A;
+  background: #f0f9eb;
+}
+
+.option-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.option-title {
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 8rpx;
+}
+
+.option-desc {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.option-right {
+  font-size: 26rpx;
+  color: #8BC34A;
+}
+
+.page-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 100rpx;
+}
+
+.box {
+  padding: 20rpx;
+}
+
+.date-box {
+  border-bottom: 1rpx solid #eee;
+}
+
+.date-list {
+  display: flex;
+  overflow-x: auto;
+  padding: 10rpx 0;
+}
+
+.date-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20rpx 30rpx;
+  margin-right: 20rpx;
+  border-radius: 8rpx;
+  background: #f8f8f8;
+}
+
+.date-item.selected {
+  background: #07c160;
+  color: white;
+}
+
+.time-box {
+  flex: 1;
+}
+
+.time-slots {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10rpx 0;
+}
+
+.time-slot {
+  width: 23%;
+  height: 80rpx;
+  margin: 1%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f8f8;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+}
+
+.time-slot.selected {
+  background: #07c160;
+  color: white;
+}
+
+.time-slot.disabled,
+.time-slot.booked {
+  background: #eee;
+  color: #999;
+  pointer-events: none;
+}
+
+.time-slot.booked {
+  background: #ffd8d8;
+}
+
+.next-btn {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100rpx;
+  background: #ccc;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32rpx;
+  width: 100%;
+}
+
+.next-btn.active {
+  background: #07c160;
+}
+
+/* 服务选择盒子 */
+.service-box {
+  padding: 20rpx;
+  margin-top: 20rpx;
+}
+
+.section-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+}
+
+.service-category {
+  margin-bottom: 30rpx;
+}
+
+.category-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.category-subtitle {
+  font-size: 24rpx;
+  color: #666;
+  margin-bottom: 20rpx;
+}
+
+.service-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.service-item {
+  width: 48%;
+  padding: 20rpx;
+  background: #f8f8f8;
+  border-radius: 8rpx;
+  margin-bottom: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s;
+}
+
+.service-item.selected {
+  background: #e6f7e9;
+  border: 1rpx solid #8BC34A;
+}
+
+.service-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.service-name {
+  font-size: 28rpx;
+  margin-bottom: 10rpx;
+}
+
+.service-price {
+  font-size: 32rpx;
+  color: #ff4d4f;
+  font-weight: bold;
+}
+
+.select-indicator {
+  font-size: 24rpx;
+  color: #8BC34A;
+}
+
+/* 下一步按钮 */
+.next-btn {
+  width: 90%;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  background: #cccccc;
+  color: #fff;
+  font-size: 28rpx;
+  border-radius: 40rpx;
+  margin: 40rpx auto;
+  pointer-events: none;
+}
+
+.next-btn.active {
+  background: #8BC34A;
+  pointer-events: auto;
+} 

@@ -1,0 +1,53 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/login/login",
+    "pages/member/member",
+    "pages/staff/staff",
+    "pages/verification/verification",
+    "pages/recharge/recharge",
+    "pages/history/history",
+    "pages/orders/orders",
+    "pages/staff-index/staff-index",
+    "pages/login/staff/staff",
+    "pages/login/account/account",
+    "pages/booking/booking",
+    "pages/service-select/service-select",
+    "pages/user-appointments/user-appointments",
+    "pages/manage-members/manage-members",
+    "pages/manage-appointments/manage-appointments",
+    "pages/gift-service/gift-service",
+    "pages/set-rest-time/set-rest-time",
+    "pages/edit-member/edit-member"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Chilling",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#07c160",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home-active.png"
+      },
+      {
+        "pagePath": "pages/member/member",
+        "text": "会员",
+        "iconPath": "images/member.png",
+        "selectedIconPath": "images/member-active.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2",
+  "darkmode": false,
+  "entryPagePath": "pages/login/login"
+}

@@ -1,0 +1,184 @@
+<view class="page-container">
+  <view class="search-section">
+    <view class="search-title">查找会员</view>
+    <view class="search-header">
+      <view class="search-type-toggle" bindtap="switchSearchType">
+        <text>{{searchType === 'phone' ? '手机号' : '姓名'}}搜索</text>
+        <text class="toggle-icon">切换</text>
+      </view>
+    </view>
+    <view class="search-input-area">
+      <input 
+        class="search-input"
+        type="{{searchType === 'phone' ? 'number' : 'text'}}" 
+        placeholder="{{searchType === 'phone' ? '请输入会员手机号' : '请输入会员姓名'}}" 
+        bindinput="handleSearchInput"
+        maxlength="{{searchType === 'phone' ? 11 : 30}}"
+        value="{{searchInput}}"
+      />
+      <button 
+        class="search-btn {{loading ? 'search-btn-disabled' : ''}}" 
+        bindtap="searchMember" 
+        disabled="{{loading}}" 
+        style="position: relative; left: 5rpx; top: 3rpx"
+      >
+        {{loading ? '查询中...' : '查询'}}
+      </button>
+    </view>
+  </view>
+
+  <view class="member-info-section" wx:if="{{userInfo}}">
+    <view class="info-header">
+      <view class="avatar-container">
+        <image class="avatar" src="{{userInfo.avatarUrl || '/images/default-avatar.png'}}"></image>
+      </view>
+      <view class="basic-info">
+        <view class="name">{{userInfo.nickName || '会员'}}</view>
+        <view class="phone">{{userInfo.phone}}</view>
+      </view>
+    </view>
+
+    <view class="balance-info">
+      <view class="balance-item">
+        <text class="label">剩余次数</text>
+        <text class="value">{{totalRemainingTimes || 0}}</text>
+      </view>
+      <view class="balance-item">
+        <text class="label">钱包余额</text>
+        <text class="value">¥{{userInfo.wallet_balance || 0}}</text>
+      </view>
+    </view>
+
+    <!-- 新增服务次数详情 -->
+    <view class="service-times-detail" bindtap="toggleServiceTimes">
+      <view class="detail-header">
+        <text class="detail-title">项目次数详情 (合计: {{totalRemainingTimes}}次)</text>
+        <text class="toggle-icon {{showServiceTimes ? 'expanded' : ''}}">{{showServiceTimes ? '收起' : '展开'}}</text>
+      </view>
+      
+      <view class="service-times-content" wx:if="{{showServiceTimes}}">
+        <view class="service-category">
+          <view class="category-title">基础拉伸</view>
+          <view class="time-items">
+            <view class="time-item">
+              <text class="time-label">60分钟</text>
+              <text class="time-value">{{userInfo.service_times.basic_60 || 0}}次</text>
+            </view>
+            <view class="time-item">
+              <text class="time-label">90分钟</text>
+              <text class="time-value">{{userInfo.service_times.basic_90 || 0}}次</text>
+            </view>
+          </view>
+        </view>
+        
+        <view class="service-category">
+          <view class="category-title">肌肉筋膜处理/运动训练</view>
+          <view class="time-items">
+            <view class="time-item">
+              <text class="time-label">60分钟</text>
+              <text class="time-value">{{userInfo.service_times.advanced_60 || 0}}次</text>
+            </view>
+            <view class="time-item">
+              <text class="time-label">90分钟</text>
+              <text class="time-value">{{userInfo.service_times.advanced_90 || 0}}次</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="action-buttons">
+      <button class="action-btn gift-btn" bindtap="giftTimes">赠送次数</button>
+      <button class="action-btn view-btn" bindtap="viewUserAppointments">查看预约</button>
+      <button class="action-btn edit-btn" bindtap="editMemberInfo">编辑信息</button>
+    </view>
+  </view>
+
+  <!-- 预约记录列表 -->
+  <view class="appointment-list-section" wx:if="{{showAppointments && userAppointments.length > 0}}">
+    <view class="section-title">预约记录</view>
+    <view class="appointment-list">
+      <view class="appointment-item" wx:for="{{userAppointments}}" wx:key="_id">
+        <view class="appointment-info">
+          <view class="service-name">{{item.serviceName}}</view>
+          <view class="appointment-time">{{item.date}} {{item.timeSlot}}</view>
+          <view class="appointment-status {{item.rawStatus}}">状态: {{item.status}}</view>
+          <view class="appointment-price">价格: ¥{{item.price}}</view>
+        </view>
+        <view class="appointment-actions">
+          <!-- 待处理或已确认的预约可以修改时间 -->
+          <button class="action-btn small-btn" bindtap="showChangeTimeModal" data-id="{{item._id}}" 
+            wx:if="{{item.rawStatus === 'pending' || item.rawStatus === 'confirmed'}}">
+            修改时间
+          </button>
+          
+          <!-- 待处理或已确认的预约可以取消 -->
+          <button class="action-btn small-btn cancel-btn" bindtap="cancelAppointment" data-id="{{item._id}}" 
+            wx:if="{{item.rawStatus === 'pending' || item.rawStatus === 'confirmed'}}">
+            取消预约
+          </button>
+          
+          <!-- 已完成或已取消的预约只显示查看详情 -->
+          <button class="action-btn small-btn view-btn" bindtap="viewAppointmentDetails" data-id="{{item._id}}" 
+            wx:if="{{item.rawStatus === 'completed' || item.rawStatus === 'cancelled' || item.rawStatus === 'paid'}}">
+            查看详情
+          </button>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 修改时间弹窗 -->
+  <view class="modal-mask" wx:if="{{showTimeChangeModal}}" bindtap="closeTimeModal"></view>
+  <view class="time-change-modal" wx:if="{{showTimeChangeModal}}">
+    <view class="modal-title">修改预约时间</view>
+    <view class="modal-content">
+      <view class="time-select-section">
+        <view class="date-selector">
+          <picker mode="selector" range="{{dateOptions}}" range-key="display" bindchange="onDateChange">
+            <view class="picker-item">
+              <text>选择日期：</text>
+              <text class="selected-value">{{selectedDate}}</text>
+            </view>
+          </picker>
+        </view>
+        
+        <view class="time-selector">
+          <view class="time-grid">
+            <view 
+              class="time-slot {{selectedTime === item ? 'selected' : ''}}" 
+              wx:for="{{availableTimes}}" 
+              wx:key="index" 
+              bindtap="selectTime" 
+              data-time="{{item}}"
+            >
+              {{item}}
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="modal-footer">
+      <button class="modal-btn cancel" bindtap="closeTimeModal">取消</button>
+      <button class="modal-btn confirm" bindtap="confirmTimeChange">确认修改</button>
+    </view>
+  </view>
+
+  <view class="empty-state" wx:if="{{!userInfo && searchInput}}">
+    <text>没有找到该会员信息</text>
+  </view>
+
+  <!-- 最近会员列表 -->
+  <view class="recent-members-section" wx:if="{{recentMembers.length > 0}}">
+    <view class="section-title">最近会员</view>
+    <view class="recent-list">
+      <view class="recent-item" wx:for="{{recentMembers}}" wx:key="_id" bindtap="selectRecentMember" data-id="{{item._id}}">
+        <image class="recent-avatar" src="{{item.avatarUrl || '/images/default-avatar.png'}}"></image>
+        <view class="recent-info">
+          <view class="recent-name">{{item.nickName || '会员'}}</view>
+          <view class="recent-phone">{{item.phone}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view> 

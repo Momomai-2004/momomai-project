@@ -1,0 +1,1170 @@
+.member-container {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+
+.content-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30rpx;
+}
+
+/* 用户信息区域 */
+.user-info-box {
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 30rpx;
+  margin-top: 20rpx;
+}
+
+.avatar-name-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40rpx;
+}
+
+.avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 60rpx;
+  margin-bottom: 20rpx;
+}
+
+.name {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.balance-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20rpx;
+}
+
+.balance-box {
+  flex: 1;
+  background: #f8f8f8;
+  border-radius: 8rpx;
+  padding: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.balance-label {
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 10rpx;
+}
+
+.balance-value {
+  font-size: 32rpx;
+  color: #07c160;
+  font-weight: bold;
+}
+
+/* 功能按钮区域 */
+.function-box {
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 30rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.function-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.02);
+  padding: 10rpx;
+}
+
+.function-icon {
+  width: 80rpx;
+  height: 80rpx;
+  margin-bottom: 12rpx;
+}
+
+.function-item text {
+  font-size: 24rpx;
+  color: #333;
+  line-height: 1;
+}
+
+/* 退出登录区域 */
+.logout-box {
+  padding: 0 30rpx;
+  margin-top: 30rpx;
+}
+
+.logout-button {
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  background: #fff;
+  color: #ff4d4f;
+  border: 2rpx solid #ff4d4f;
+  border-radius: 44rpx;
+  font-size: 32rpx;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 去除按钮的默认样式 */
+.logout-button::after {
+  border: none;
+}
+
+/* 登录区域 */
+.login-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+
+.login-btn {
+  width: 80%;
+  height: 88rpx;
+  background: #07c160;
+  color: #fff;
+  border-radius: 44rpx;
+  font-size: 32rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  line-height: 1 !important;
+}
+
+/* 去除按钮的默认样式 */
+.login-btn::after {
+  border: none;
+}
+
+/* 充值部分样式 */
+.recharge-section {
+  background: #fff;
+  padding: 30rpx;
+  border-radius: 12rpx;
+  margin-bottom: 20rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+  display: block;
+}
+
+.offline-card {
+  margin-bottom: 40rpx;
+}
+
+.verify-btn {
+  background: #f5f5f5;
+  color: #333;
+  font-size: 28rpx;
+  padding: 20rpx 0;
+  border-radius: 8rpx;
+}
+
+.custom-amount {
+  display: flex;
+  margin-bottom: 30rpx;
+}
+
+.custom-amount input {
+  flex: 1;
+  background: #f5f5f5;
+  padding: 20rpx;
+  border-radius: 8rpx;
+  margin-right: 20rpx;
+}
+
+.recharge-confirm {
+  width: 200rpx;
+  background: #4caf50;
+  color: #fff;
+  font-size: 28rpx;
+  padding: 0;
+  line-height: 80rpx;
+  border-radius: 8rpx;
+}
+
+/* 套餐列表样式 */
+.package-type {
+  margin-bottom: 40rpx;
+}
+
+.package-title {
+  font-size: 32rpx;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+  display: block;
+}
+
+.package-subtitle {
+  font-size: 24rpx;
+  color: #666;
+  margin-bottom: 20rpx;
+  display: block;
+}
+
+.duration-section {
+  margin-bottom: 30rpx;
+}
+
+.duration-title {
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 20rpx;
+  display: block;
+}
+
+.package-items {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -10rpx;
+}
+
+.package-item {
+  width: calc(33.33% - 20rpx);
+  margin: 10rpx;
+  background: #f5f5f5;
+  border-radius: 8rpx;
+  padding: 20rpx;
+  text-align: center;
+}
+
+.sessions {
+  font-size: 32rpx;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.price {
+  font-size: 36rpx;
+  color: #ff6b6b;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.average {
+  font-size: 24rpx;
+  color: #666;
+  margin-bottom: 10rpx;
+}
+
+.discount {
+  font-size: 24rpx;
+  color: #4caf50;
+  font-weight: bold;
+}
+
+/* 员工登录按钮样式 */
+.staff-login {
+  margin-top: 40rpx;
+  padding: 0 30rpx;
+  padding-top: env(safe-area-inset-top);
+  padding: 20rpx;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+/* 登录部分样式 */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 40rpx;
+  box-sizing: border-box;
+}
+
+.login-box {
+  width: 100%;
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 40rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.1);
+}
+
+.login-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  display: block;
+  margin-bottom: 20rpx;
+}
+
+.login-subtitle {
+  font-size: 28rpx;
+  color: #666;
+  text-align: center;
+  display: block;
+  margin-bottom: 40rpx;
+}
+
+.auth-button {
+  width: 100% !important;
+  height: 88rpx;
+  line-height: 88rpx;
+  background: #07c160;
+  color: #fff;
+  font-size: 32rpx;
+  border-radius: 44rpx;
+  margin-bottom: 30rpx;
+}
+
+/* 手动登录部分 */
+.manual-login {
+  margin-top: 30rpx;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 20rpx;
+}
+
+.phone-input,
+.code-input {
+  width: 100%;
+  height: 88rpx;
+  background: #f8f8f8;
+  border-radius: 44rpx;
+  padding: 0 30rpx;
+  font-size: 28rpx;
+  box-sizing: border-box;
+}
+
+.code-input {
+  padding-right: 220rpx;
+}
+
+.code-button {
+  position: absolute;
+  right: 8rpx;
+  top: 8rpx;
+  width: 200rpx !important;
+  height: 72rpx;
+  line-height: 72rpx;
+  background: #07c160;
+  color: #fff;
+  font-size: 26rpx;
+  border-radius: 36rpx;
+  margin: 0;
+  padding: 0;
+}
+
+.code-button.disabled {
+  background: #ccc;
+  color: #fff;
+}
+
+.submit-button {
+  width: 100% !important;
+  height: 88rpx;
+  line-height: 88rpx;
+  background: #07c160;
+  color: #fff;
+  font-size: 32rpx;
+  border-radius: 44rpx;
+  margin-top: 40rpx;
+}
+
+.submit-button.disabled {
+  background: #ccc;
+  color: #fff;
+}
+
+.switch-login {
+  margin-top: 30rpx;
+  text-align: center;
+}
+
+.switch-text {
+  font-size: 28rpx;
+  color: #07c160;
+  text-decoration: underline;
+}
+
+/* 会员信息部分样式 */
+.member-container {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+
+.content-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30rpx;
+}
+
+/* 用户信息区域 */
+.user-info-box {
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 30rpx;
+  margin-top: 20rpx;
+}
+
+.avatar-name-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40rpx;
+}
+
+.avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 60rpx;
+  margin-bottom: 20rpx;
+}
+
+.name {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.balance-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20rpx;
+}
+
+.balance-box {
+  flex: 1;
+  background: #f8f8f8;
+  border-radius: 8rpx;
+  padding: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.balance-label {
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 10rpx;
+}
+
+.balance-value {
+  font-size: 32rpx;
+  color: #07c160;
+  font-weight: bold;
+}
+
+/* 功能按钮区域 */
+.function-box {
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 30rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.function-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.02);
+  padding: 10rpx;
+}
+
+.function-icon {
+  width: 80rpx;
+  height: 80rpx;
+  margin-bottom: 12rpx;
+}
+
+.function-item text {
+  font-size: 24rpx;
+  color: #333;
+  line-height: 1;
+}
+
+.staff-login-btn {
+  background: #f5f5f5;
+  color: #666;
+  font-size: 28rpx;
+  padding: 20rpx 0;
+  border-radius: 8rpx;
+}
+
+/* 核销弹窗样式 */
+.verify-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #fff;
+  width: 80%;
+  border-radius: 12rpx;
+  padding: 40rpx;
+}
+
+.modal-title {
+  font-size: 32rpx;
+  color: #333;
+  text-align: center;
+  margin-bottom: 40rpx;
+}
+
+.verify-options {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30rpx;
+}
+
+.verify-option {
+  width: 45%;
+  background: #4caf50;
+  color: #fff;
+  font-size: 28rpx;
+  padding: 20rpx 0;
+  border-radius: 8rpx;
+}
+
+.close-modal {
+  background: #f5f5f5;
+  color: #666;
+  font-size: 28rpx;
+  padding: 20rpx 0;
+  border-radius: 8rpx;
+}
+
+.page-wrapper {
+  min-height: 100vh;
+  background: #f8f8f8;
+}
+
+/* 会员信息部分样式 */
+.member-section {
+  padding: 30rpx;
+}
+
+.balance-card {
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 30rpx;
+  margin: 30rpx;
+}
+
+.balance-info {
+  margin-bottom: 30rpx;
+}
+
+.balance-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 0;
+}
+
+.label {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.value {
+  font-size: 32rpx;
+  color: #333;
+  font-weight: bold;
+}
+
+.recharge-btn {
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  background: #07c160;
+  color: #fff;
+  font-size: 32rpx;
+  border-radius: 44rpx;
+}
+
+.recharge-btn:active {
+  opacity: 0.8;
+}
+
+/* 退出登录按钮样式 */
+.logout-section {
+  margin-top: 60rpx;
+  padding: 0 30rpx;
+}
+
+.logout-btn {
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  background: #fff;
+  color: #ff4d4f;
+  font-size: 32rpx;
+  border: 2rpx solid #ff4d4f;
+  border-radius: 44rpx;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logout-btn::after {
+  border: none;
+}
+
+/* 按下效果 */
+.logout-btn:active {
+  opacity: 0.8;
+}
+
+/* 店铺标题样式 */
+.shop-title {
+  padding-top: env(safe-area-inset-top);
+  text-align: center;
+  color: #fff;
+  font-size: 34rpx;
+  font-weight: bold;
+  line-height: 44px;
+  background: #07c160;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+/* 在原有样式基础上添加 */
+.phone-btn {
+  background: #fff;
+  color: #333;
+  border: 2rpx solid #ddd;
+}
+
+.staff-btn {
+  background: #fff;
+  color: #333;
+  border: 2rpx solid #ddd;
+}
+
+.login-buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30rpx;
+  padding: 0 30rpx;
+}
+
+.btn-icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 16rpx;
+}
+
+/* 在原有样式基础上添加 */
+.login-form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 40rpx 30rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+.form-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 40rpx;
+}
+
+.input-group {
+  margin-bottom: 30rpx;
+}
+
+.input-group input {
+  width: 100%;
+  height: 88rpx;
+  background: #f8f8f8;
+  border-radius: 44rpx;
+  padding: 0 40rpx;
+  font-size: 28rpx;
+  box-sizing: border-box;
+}
+
+.submit-btn {
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  background: #07c160;
+  color: #fff;
+  font-size: 32rpx;
+  border-radius: 44rpx;
+  margin-top: 40rpx;
+}
+
+.close-btn {
+  text-align: center;
+  color: #666;
+  font-size: 28rpx;
+  margin-top: 30rpx;
+  padding: 20rpx;
+}
+
+.close-btn:active {
+  opacity: 0.7;
+}
+
+/* 遮罩层 */
+.mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+}
+
+/* 昵称修改弹窗 */
+.nickname-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  width: 600rpx;
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 40rpx;
+}
+
+.modal-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30rpx;
+}
+
+.nickname-input {
+  width: 100%;
+  height: 88rpx;
+  background: #f8f8f8;
+  border-radius: 8rpx;
+  padding: 0 20rpx;
+  margin-bottom: 30rpx;
+  font-size: 28rpx;
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 20rpx;
+}
+
+.modal-buttons button {
+  flex: 1;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 28rpx;
+  border-radius: 40rpx;
+}
+
+.cancel-btn {
+  background: #f5f5f5;
+  color: #666;
+}
+
+.confirm-btn {
+  background: #07c160;
+  color: #fff;
+}
+
+.confirm-btn::after,
+.cancel-btn::after {
+  border: none;
+}
+
+.member-card {
+  margin: 20rpx;
+  padding: 30rpx;
+  background: linear-gradient(135deg, #8BC34A, #4CAF50);
+  border-radius: 12rpx;
+  color: #fff;
+}
+
+.member-info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20rpx;
+  padding: 20rpx;
+}
+
+.info-item {
+  background: #fff;
+  padding: 20rpx;
+  border-radius: 8rpx;
+  text-align: center;
+}
+
+.button-group {
+  display: flex;
+  align-items: center;
+  gap: 30rpx;
+}
+
+.icon-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: 0;
+  width: 120rpx;
+  height: 100rpx;
+}
+
+.icon-button text {
+  font-size: 24rpx;
+  color: #333;
+  margin-top: 8rpx;
+}
+
+.verify-button {
+  width: 240rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  background: #07c160;
+  color: #fff;
+  border-radius: 40rpx;
+  font-size: 32rpx;
+  text-align: center;
+}
+
+/* 功能图标通用样式 */
+.icon-wrapper {
+  width: 48rpx;
+  height: 48rpx;
+  position: relative;
+  margin-bottom: 8rpx;
+}
+
+.icon-border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 3rpx solid #333;
+  border-radius: 6rpx;
+  box-sizing: border-box;
+}
+
+/* 订单图标 */
+.order-icon .icon-line {
+  position: absolute;
+  bottom: 12rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24rpx;
+  height: 4rpx;
+  background-color: #07c160;
+}
+
+/* 历史记录图标 */
+.history-icon .icon-mark {
+  position: absolute;
+  top: 12rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4rpx;
+  height: 24rpx;
+  background-color: #07c160;
+}
+
+/* 充值图标 */
+.recharge-icon .icon-yuan {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 24rpx;
+  height: 24rpx;
+  border: 3rpx solid #333;
+}
+
+.recharge-icon .icon-arrow {
+  position: absolute;
+  top: 8rpx;
+  right: 8rpx;
+  width: 12rpx;
+  height: 12rpx;
+  border-top: 3rpx solid #07c160;
+  border-right: 3rpx solid #07c160;
+  transform: rotate(45deg);
+}
+
+/* 核销图标 */
+.verify-icon .icon-lines {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 24rpx;
+  height: 24rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.verify-icon .icon-lines::before,
+.verify-icon .icon-lines::after {
+  content: '';
+  width: 4rpx;
+  height: 100%;
+  background-color: #07c160;
+}
+
+.verify-icon .icon-lines::before {
+  margin-right: 6rpx;
+}
+
+.verify-icon .icon-lines::after {
+  margin-left: 6rpx;
+}
+
+/* 功能按钮文字样式 */
+.function-item text {
+  font-size: 24rpx;
+  color: #333;
+  margin-top: 8rpx;
+}
+
+.container {
+  padding: 30rpx;
+  min-height: 100vh;
+  background-color: #f6f6f6;
+}
+
+.debug-info {
+  padding: 10rpx;
+  font-size: 24rpx;
+  color: #999;
+  text-align: center;
+  margin-bottom: 20rpx;
+}
+
+.member-info {
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 30rpx;
+  display: flex;
+  align-items: center;
+  margin-bottom: 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.avatar-box {
+  margin-right: 30rpx;
+}
+
+.avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 60rpx;
+  background-color: #eee;
+}
+
+.info-box {
+  flex: 1;
+}
+
+.nickname {
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+  display: block;
+}
+
+.balance, .sessions {
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 8rpx;
+  display: block;
+}
+
+.action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20rpx;
+  margin-bottom: 30rpx;
+}
+
+.action-btn {
+  flex: 1;
+  min-width: 200rpx;
+  font-size: 28rpx;
+  background-color: #07c160;
+  color: #fff;
+}
+
+.logout {
+  background-color: #f5f5f5;
+  color: #666;
+}
+
+.login-required {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100rpx 30rpx;
+  text-align: center;
+}
+
+.login-required text {
+  font-size: 32rpx;
+  color: #666;
+  margin-bottom: 30rpx;
+}
+
+.login-required button {
+  width: 300rpx;
+  background-color: #07c160;
+  color: #fff;
+  font-size: 30rpx;
+}
+
+/* 剩余次数按钮样式 */
+.remaining-btn {
+  position: relative;
+}
+
+.remaining-btn .balance-value {
+  color: #4CAF50;
+}
+
+/* 剩余次数详情弹窗 */
+.remaining-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  width: 85%;
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.modal-title {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.remaining-list {
+  margin-bottom: 24px;
+}
+
+.remaining-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.remaining-item:last-child {
+  border-bottom: none;
+}
+
+.item-name {
+  font-size: 14px;
+  color: #333;
+  flex: 1;
+  padding-right: 10px;
+}
+
+.item-count {
+  font-size: 16px;
+  color: #ff6b6b;
+  font-weight: bold;
+}
+
+.close-btn {
+  width: 100%;
+  height: 44px;
+  line-height: 44px;
+  background: #4CAF50;
+  color: #fff;
+  border-radius: 22px;
+  font-size: 16px;
+  margin-top: 10px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-btn:active {
+  opacity: 0.9;
+}

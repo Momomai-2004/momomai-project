@@ -1,0 +1,255 @@
+.appointment-container {
+  padding: 30rpx;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+.search-section, .appointments-section {
+  background-color: #fff;
+  border-radius: 12rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 30rpx;
+  color: #333;
+}
+
+/* 搜索区域 */
+.search-bar {
+  display: flex;
+  align-items: center;
+  height: 80rpx;
+}
+
+.search-bar input {
+  flex: 1;
+  height: 80rpx;
+  border: 1rpx solid #e6e6e6;
+  border-radius: 8rpx;
+  padding: 0 20rpx;
+  font-size: 28rpx;
+}
+
+.search-btn {
+  width: 160rpx;
+  height: 80rpx;
+  margin-left: 20rpx;
+  background-color: #7bc768;
+  color: #fff;
+  font-size: 28rpx;
+  line-height: 80rpx;
+  border-radius: 8rpx;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-btn[disabled] {
+  background-color: #cccccc;
+}
+
+/* 预约列表 */
+.appointments-list {
+  margin-top: 20rpx;
+}
+
+.appointment-item {
+  background-color: #f8f8f8;
+  border-radius: 8rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+}
+
+.appointment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 1rpx solid #e6e6e6;
+}
+
+.service-name {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.status {
+  font-size: 26rpx;
+  padding: 6rpx 20rpx;
+  border-radius: 30rpx;
+}
+
+.status.pending {
+  background-color: #ffefd5;
+  color: #ff9500;
+}
+
+.status.confirmed {
+  background-color: #e6f7ff;
+  color: #1890ff;
+}
+
+.status.completed {
+  background-color: #d9f7be;
+  color: #52c41a;
+}
+
+.status.cancelled {
+  background-color: #f5f5f5;
+  color: #999;
+}
+
+.appointment-info {
+  margin-bottom: 30rpx;
+}
+
+.info-row {
+  display: flex;
+  margin-bottom: 15rpx;
+  font-size: 28rpx;
+  color: #666;
+}
+
+.label {
+  width: 150rpx;
+}
+
+.value {
+  flex: 1;
+  color: #333;
+}
+
+.appointment-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.action-btn {
+  width: 48%;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 28rpx;
+  margin: 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.action-btn.verify {
+  background-color: #7bc768;
+  color: #fff;
+}
+
+.action-btn.cancel {
+  background-color: #fff;
+  color: #ff4d4f;
+  border: 1rpx solid #ff4d4f;
+}
+
+.empty-tip {
+  text-align: center;
+  padding: 50rpx 0;
+  color: #999;
+  font-size: 28rpx;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.refresh-btn {
+  font-size: 28rpx;
+  color: #7bc768;
+  padding: 10rpx 20rpx;
+  border-radius: 8rpx;
+  background-color: #f0f9eb;
+}
+
+/* 标签切换 */
+.tab-container {
+  display: flex;
+  border-bottom: 1rpx solid #e6e6e6;
+  margin-bottom: 30rpx;
+}
+
+.tab {
+  flex: 1;
+  text-align: center;
+  font-size: 28rpx;
+  color: #666;
+  padding: 20rpx 0;
+  position: relative;
+}
+
+.tab.active {
+  color: #7bc768;
+  font-weight: bold;
+}
+
+.tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60rpx;
+  height: 4rpx;
+  background-color: #7bc768;
+  border-radius: 2rpx;
+}
+
+/* 加载动画 */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40rpx 0;
+}
+
+.loading-icon {
+  width: 60rpx;
+  height: 60rpx;
+  border: 4rpx solid #f3f3f3;
+  border-top: 4rpx solid #7bc768;
+  border-radius: 50%;
+  margin-bottom: 20rpx;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.action-btn.change {
+  background-color: #fff;
+  color: #1890ff;
+  border: 1rpx solid #1890ff;
+}
+
+.appointment-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.action-btn {
+  width: 30%;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 28rpx;
+  margin: 0;
+  margin-bottom: 10rpx;
+} 

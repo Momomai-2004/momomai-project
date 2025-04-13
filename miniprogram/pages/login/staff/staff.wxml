@@ -1,0 +1,25 @@
+<view class="container">
+  <view class="login-box" style="height: 987rpx; display: block; box-sizing: border-box">
+    <view class="title">员工登录</view>
+    
+    <view class="input-group">
+      <input 
+        type="text" 
+        placeholder="请输入工号" 
+        bindinput="inputUsername"
+        value="{{username}}"
+      />
+    </view>
+    
+    <view class="input-group">
+      <input 
+        type="password" 
+        placeholder="请输入密码" 
+        bindinput="inputPassword"
+        value="{{password}}"
+      />
+    </view>
+    
+    <button class="login-btn" bindtap="handleLogin">员工登录</button>
+  </view>
+</view> 

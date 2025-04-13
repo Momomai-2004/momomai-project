@@ -1,0 +1,36 @@
+/**app.wxss**/
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+} 
+
+button {
+  background: initial;
+  text-align: center;
+}
+
+button:focus{
+  outline: 0;
+}
+
+button::after{
+  border: none;
+}
+
+
+page {
+  background: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* 全局按钮统一样式 */
+.action-btn, .search-btn, .confirm-btn, .cancel-btn, .submit-btn, .modal-btn, .change-btn, .verify-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}

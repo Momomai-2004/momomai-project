@@ -1,0 +1,384 @@
+page {
+  background-color: #f8f8f8;
+}
+
+.page-container {
+  padding: 20rpx;
+}
+
+/* 标题样式 */
+.section-title {
+  font-size: 32rpx;
+  font-weight: 500;
+  margin: 20rpx 0;
+  color: #333;
+}
+
+/* 手机号输入区域 */
+.phone-section {
+  background-color: #fff;
+  border-radius: 12rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.phone-input-area {
+  display: flex;
+  margin: 30rpx 0;
+}
+
+.phone-input {
+  flex: 1;
+  height: 80rpx;
+  border: 1rpx solid #ddd;
+  border-radius: 8rpx;
+  padding: 0 20rpx;
+  font-size: 28rpx;
+}
+
+.search-btn {
+  width: 160rpx;
+  height: 80rpx;
+  background-color: #7bc768;
+  color: #fff;
+  font-size: 28rpx;
+  margin-left: 20rpx;
+  border-radius: 8rpx;
+  line-height: 80rpx;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-btn[disabled] {
+  background-color: #ccc;
+  color: #fff;
+}
+
+.tip-text {
+  font-size: 24rpx;
+  color: #999;
+  text-align: center;
+  margin-top: 20rpx;
+}
+
+/* 赠送区域 */
+.gift-section {
+  background-color: #fff;
+  border-radius: 12rpx;
+  padding: 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+/* 返回按钮 */
+.back-btn {
+  display: inline-block;
+  font-size: 26rpx;
+  color: #7bc768;
+  margin-bottom: 20rpx;
+  padding: 10rpx 0;
+}
+
+/* 用户信息 */
+.user-info {
+  background-color: #f5f5f5;
+  padding: 20rpx;
+  border-radius: 8rpx;
+  margin-bottom: 30rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  font-size: 32rpx;
+  font-weight: 500;
+  margin-bottom: 10rpx;
+  color: #333;
+}
+
+.user-phone {
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 10rpx;
+}
+
+.current-times {
+  font-size: 26rpx;
+  color: #7bc768;
+}
+
+.service-times-info {
+  margin-top: 15rpx;
+  background-color: #f5f5f5;
+  border-radius: 6rpx;
+  padding: 12rpx;
+}
+
+.service-type-summary {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8rpx;
+}
+
+.service-label {
+  font-size: 24rpx;
+  color: #666;
+  margin-bottom: 4rpx;
+}
+
+.service-value {
+  font-size: 24rpx;
+  color: #333;
+  padding-left: 10rpx;
+}
+
+/* 步骤指导 */
+.step-guide {
+  font-size: 28rpx;
+  color: #666;
+  background-color: #f0f9ed;
+  padding: 16rpx 20rpx;
+  border-radius: 8rpx;
+  margin: 20rpx 0;
+  text-align: center;
+  border-left: 6rpx solid #7bc768;
+}
+
+/* 服务类型部分 */
+.service-type-section {
+  margin-bottom: 30rpx;
+}
+
+.service-type-options {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.service-type-item {
+  width: 48%;
+  padding: 20rpx;
+  background-color: #f5f5f5;
+  border-radius: 8rpx;
+  margin-bottom: 20rpx;
+  box-sizing: border-box;
+  border: 2rpx solid transparent;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.service-type-item.selected {
+  border-color: #7bc768;
+  background-color: rgba(123, 199, 104, 0.1);
+  box-shadow: 0 0 10rpx rgba(123, 199, 104, 0.3);
+}
+
+.selected-indicator {
+  position: absolute;
+  top: 10rpx;
+  right: 10rpx;
+  width: 40rpx;
+  height: 40rpx;
+  background-color: #7bc768;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  font-weight: bold;
+}
+
+.service-name {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.service-desc {
+  font-size: 24rpx;
+  color: #666;
+}
+
+/* 服务时长部分 */
+.service-duration-section {
+  margin-bottom: 30rpx;
+}
+
+.service-duration-options {
+  display: flex;
+  justify-content: space-between;
+}
+
+.duration-item {
+  width: 48%;
+  padding: 20rpx;
+  background-color: #f5f5f5;
+  border-radius: 8rpx;
+  text-align: center;
+  box-sizing: border-box;
+  border: 2rpx solid transparent;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.duration-item.selected {
+  border-color: #7bc768;
+  background-color: rgba(123, 199, 104, 0.1);
+  box-shadow: 0 0 10rpx rgba(123, 199, 104, 0.3);
+}
+
+.duration-time {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.duration-price {
+  font-size: 30rpx;
+  color: #e54d42;
+  font-weight: 500;
+}
+
+/* 赠送次数部分 */
+.gift-amount-section {
+  margin-bottom: 30rpx;
+}
+
+.amount-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20rpx 0;
+}
+
+.minus-btn, .plus-btn {
+  width: 70rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  text-align: center;
+  border: 1rpx solid #ddd;
+  font-size: 36rpx;
+  color: #333;
+  background-color: #f5f5f5;
+}
+
+.minus-btn {
+  border-radius: 8rpx 0 0 8rpx;
+}
+
+.plus-btn {
+  border-radius: 0 8rpx 8rpx 0;
+}
+
+.amount-input {
+  width: 120rpx;
+  height: 70rpx;
+  border-top: 1rpx solid #ddd;
+  border-bottom: 1rpx solid #ddd;
+  text-align: center;
+  font-size: 32rpx;
+}
+
+/* 原因输入区域 */
+.reason-section {
+  margin-bottom: 30rpx;
+}
+
+.reason-input {
+  width: 100%;
+  height: 180rpx;
+  border: 1rpx solid #ddd;
+  border-radius: 8rpx;
+  padding: 20rpx;
+  font-size: 28rpx;
+  box-sizing: border-box;
+  background-color: #f9f9f9;
+}
+
+/* 赠送摘要部分 */
+.summary-section {
+  margin-bottom: 30rpx;
+  background-color: #f9f9f9;
+  border-radius: 8rpx;
+  padding: 20rpx;
+}
+
+.summary-title {
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 15rpx;
+  border-bottom: 1rpx solid #eee;
+  padding-bottom: 10rpx;
+}
+
+.summary-content {
+  padding: 10rpx 0;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15rpx;
+  font-size: 28rpx;
+}
+
+.summary-label {
+  color: #666;
+}
+
+.summary-value {
+  color: #333;
+  font-weight: 500;
+}
+
+.summary-item.total {
+  margin-top: 20rpx;
+  padding-top: 15rpx;
+  border-top: 1rpx dashed #ddd;
+}
+
+.summary-item.total .summary-label,
+.summary-item.total .summary-value {
+  color: #e54d42;
+  font-weight: 600;
+  font-size: 32rpx;
+}
+
+/* 按钮区域 */
+.action-section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40rpx;
+}
+
+.cancel-btn, .confirm-btn {
+  width: 48%;
+  height: 80rpx;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+  line-height: 80rpx;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cancel-btn {
+  background-color: #f5f5f5;
+  color: #666;
+}
+
+.confirm-btn {
+  background-color: #7bc768;
+  color: #fff;
+}
+
+.confirm-btn[disabled] {
+  background-color: #ccc;
+} 

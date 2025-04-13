@@ -1,0 +1,225 @@
+.page-wrapper {
+  min-height: 100vh;
+  background: #f8f8f8;
+  padding: 30rpx;
+}
+
+.login-section {
+  margin-top: 100rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-title {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+
+.login-subtitle {
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 80rpx;
+}
+
+.login-buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30rpx;
+}
+
+.login-btn {
+  width: 90%;
+  height: 88rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32rpx;
+  border-radius: 44rpx;
+  border: none;
+}
+
+.btn-icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 16rpx;
+}
+
+.wechat-btn {
+  background: #07c160;
+  color: #fff;
+}
+
+.other-btn {
+  background: #fff;
+  color: #333;
+  border: 2rpx solid #ddd;
+}
+
+.login-btn:active {
+  opacity: 0.8;
+}
+
+.login-container {
+  padding: 30rpx;
+}
+
+.login-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 100rpx;
+  margin-top: 60rpx;
+}
+
+.logo {
+  width: 160rpx;
+  height: 160rpx;
+  margin-bottom: 30rpx;
+}
+
+.title {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.login-content {
+  padding: 0 30rpx;
+}
+
+.wechat-login-btn {
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  background: #07c160;
+  color: #fff;
+  font-size: 32rpx;
+  border-radius: 44rpx;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wechat-login-btn::after {
+  border: none;
+}
+
+.wechat-icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 16rpx;
+}
+
+.wechat-login-btn:active {
+  opacity: 0.8;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  margin: 60rpx 0;
+  padding: 0 30rpx;
+}
+
+.line {
+  flex: 1;
+  height: 2rpx;
+  background: #eee;
+}
+
+.divider text {
+  color: #999;
+  font-size: 28rpx;
+  padding: 0 30rpx;
+}
+
+.other-login {
+  display: flex;
+  justify-content: center;
+  gap: 60rpx;
+  padding: 0 30rpx;
+}
+
+.login-type-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.type-icon {
+  width: 80rpx;
+  height: 80rpx;
+  margin-bottom: 16rpx;
+}
+
+.login-type-btn text {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.login-type-btn:active {
+  opacity: 0.8;
+}
+
+.container {
+  padding-top: env(safe-area-inset-top);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.login-form {
+  width: 90%;
+  max-width: 600rpx;
+  padding: 40rpx;
+  background: #fff;
+  border-radius: 12rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.1);
+}
+
+.login-btn {
+  margin-top: 40rpx;
+}
+
+.wechat-phone-btn {
+  width: 100%;
+  height: 88rpx;
+  background: #07c160 !important;
+  color: #fff !important;
+  border-radius: 44rpx;
+  font-size: 32rpx;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  line-height: 1 !important;
+  min-height: 88rpx;
+}
+
+.wechat-phone-btn.button-hover {
+  background: #06ae56 !important;
+}
+
+.wechat-phone-btn-wrapper {
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+} 

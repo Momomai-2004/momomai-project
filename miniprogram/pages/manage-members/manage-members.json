@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "会员管理",
+  "navigationBarBackgroundColor": "#4CAF50",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {},
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#f1f8e9",
+  "backgroundTextStyle": "dark"
+} 

@@ -1,0 +1,67 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40rpx;
+  min-height: 100vh;
+  background-color: #f8f8f8;
+}
+
+.login-box {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 12rpx;
+  padding: 40rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 40rpx;
+  color: #333;
+}
+
+.input-group {
+  margin-bottom: 30rpx;
+}
+
+input {
+  width: 100%;
+  height: 90rpx;
+  background-color: #f5f5f5;
+  border-radius: 8rpx;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  font-size: 28rpx;
+}
+
+.login-btn {
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  background-color: #07c160;
+  color: #fff;
+  border-radius: 45rpx;
+  font-size: 32rpx;
+  margin-top: 20rpx;
+  box-shadow: 0 4rpx 8rpx rgba(7, 193, 96, 0.2);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 按钮按下效果 */
+.login-btn:active {
+  opacity: 0.8;
+}
+
+.hint-text {
+  margin-top: 40rpx;
+  font-size: 24rpx;
+  color: #999;
+  text-align: center;
+} 

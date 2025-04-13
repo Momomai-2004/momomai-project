@@ -1,0 +1,182 @@
+<view class="page-container">
+  <!-- 步骤指示器盒子 -->
+  <view class="box step-box">
+    <view class="step-indicator">
+      <view class="step active">
+        <text class="step-num">1</text>
+        <text class="step-text">选择时间</text>
+      </view>
+      <view class="step-line"></view>
+      <view class="step">
+        <text class="step-num">2</text>
+        <text class="step-text">选择项目</text>
+      </view>
+      <view class="step-line"></view>
+      <view class="step">
+        <text class="step-num">3</text>
+        <text class="step-text">确认支付</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 理疗师信息盒子 -->
+  <view class="box therapist-info-box" wx:if="{{selectedTherapist}}">
+    <view class="therapist-info">
+      <image class="therapist-avatar" src="{{selectedTherapist.avatar || '/images/default-avatar.png'}}" mode="aspectFill"></image>
+      <view class="therapist-details">
+        <text class="therapist-name">{{selectedTherapist.name}}</text>
+        <view class="therapist-specialties">
+          <text class="specialty" wx:for="{{selectedTherapist.specialties}}" wx:key="*this">{{item}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 日期选择器盒子 -->
+  <view class="box date-box">
+    <view class="date-list">
+      <view class="date-item {{selectedDate === item.dateString ? 'selected' : ''}}"
+            wx:for="{{dateList}}" 
+            wx:key="id"
+            data-date="{{item.dateString}}"
+            bindtap="onDateSelect">
+        <text class="day">{{item.day}}</text>
+        <text class="date {{item.isToday ? 'today' : ''}}">{{item.dateString}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 时间选择器盒子 -->
+  <view class="box time-box">
+    <view class="time-slots">
+      <view class="time-slot {{item.disabled ? 'disabled' : ''}} {{item.booked ? 'booked' : ''}} {{selectedTime === item.time ? 'selected' : ''}}"
+            wx:for="{{timeSlots}}"
+            wx:key="id"
+            data-time="{{item.time}}"
+            data-index="{{index}}"
+            bindtap="{{!item.disabled ? 'onTimeSelect' : ''}}">
+        {{item.time}}
+      </view>
+    </view>
+  </view>
+
+  <!-- 服务选择盒子 -->
+  <view class="box service-box" wx:if="{{false}}">
+    <view class="section-title">选择服务项目</view>
+    
+    <!-- 基础拉伸服务 -->
+    <view class="service-category">
+      <view class="category-title">基础拉伸（日常保健）</view>
+      <view class="service-list">
+        <view class="service-item {{selectedService.type === 'basic_60' ? 'selected' : ''}}" 
+              bindtap="selectService" 
+              data-service="{{services[0]}}">
+          <view class="service-info">
+            <text class="service-name">60分钟</text>
+            <text class="service-price">¥{{services[0].price || 299}}</text>
+          </view>
+          <view class="select-indicator">
+            <text>{{selectedService.type === 'basic_60' ? '已选' : '选择'}}</text>
+          </view>
+        </view>
+
+        <view class="service-item {{selectedService.type === 'basic_90' ? 'selected' : ''}}" 
+              bindtap="selectService" 
+              data-service="{{services[1]}}">
+          <view class="service-info">
+            <text class="service-name">90分钟</text>
+            <text class="service-price">¥{{services[1].price || 439}}</text>
+          </view>
+          <view class="select-indicator">
+            <text>{{selectedService.type === 'basic_90' ? '已选' : '选择'}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 肌肉筋膜处理服务 -->
+    <view class="service-category">
+      <view class="category-title">肌肉筋膜处理/运动训练</view>
+      <view class="category-subtitle">综合解决：体态调整，损伤修护，疼痛处理</view>
+      <view class="service-list">
+        <view class="service-item {{selectedService.type === 'advanced_60' ? 'selected' : ''}}" 
+              bindtap="selectService" 
+              data-service="{{services[2]}}">
+          <view class="service-info">
+            <text class="service-name">60分钟</text>
+            <text class="service-price">¥{{services[2].price || 399}}</text>
+          </view>
+          <view class="select-indicator">
+            <text>{{selectedService.type === 'advanced_60' ? '已选' : '选择'}}</text>
+          </view>
+        </view>
+
+        <view class="service-item {{selectedService.type === 'advanced_90' ? 'selected' : ''}}" 
+              bindtap="selectService" 
+              data-service="{{services[3]}}">
+          <view class="service-info">
+            <text class="service-name">90分钟</text>
+            <text class="service-price">¥{{services[3].price || 579}}</text>
+          </view>
+          <view class="select-indicator">
+            <text>{{selectedService.type === 'advanced_90' ? '已选' : '选择'}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 下一步按钮 -->
+  <view class="next-btn {{selectedTime ? 'active' : ''}}" bindtap="goToServiceSelect">
+    下一步
+  </view>
+</view>
+
+<!-- 钱包支付选项弹窗 -->
+<view class="wallet-modal" wx:if="{{showWalletModal}}">
+  <view class="modal-mask" bindtap="closeWalletModal"></view>
+  <view class="modal-content">
+    <view class="modal-title">选择支付方式</view>
+    
+    <!-- 余额支付 -->
+    <view class="wallet-option {{walletBalance >= selectedService.price ? '' : 'disabled'}}"
+          bindtap="handleBalancePay">
+      <view class="option-info">
+        <text class="option-name">余额支付</text>
+        <text class="option-balance">当前余额：¥{{walletBalance}}</text>
+      </view>
+      <text class="option-status">{{walletBalance >= selectedService.price ? '可用' : '余额不足'}}</text>
+    </view>
+
+    <!-- 次数抵扣 -->
+    <view class="wallet-option {{remainingSessions > 0 ? '' : 'disabled'}}"
+          bindtap="handleSessionPay">
+      <view class="option-info">
+        <text class="option-name">次数抵扣</text>
+        <text class="option-balance">剩余次数：{{remainingSessions}}次</text>
+      </view>
+      <text class="option-status">{{remainingSessions > 0 ? '可用' : '次数不足'}}</text>
+    </view>
+
+    <view class="modal-close" bindtap="closeWalletModal">取消</view>
+  </view>
+</view>
+
+<!-- 服务选择弹窗 -->
+<view class="modal" wx:if="{{showServiceModal}}">
+  <view class="modal-content">
+    <view class="modal-header">
+      <text>选择预约项目</text>
+      <text class="close" bindtap="closeServiceModal">×</text>
+    </view>
+    <view class="service-list">
+      <view class="service-item" 
+            wx:for="{{services}}" 
+            wx:key="id"
+            bindtap="selectService"
+            data-service="{{item}}">
+        {{item.name}}
+      </view>
+    </view>
+  </view>
+</view> 

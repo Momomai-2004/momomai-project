@@ -1,0 +1,136 @@
+<view class="page-container">
+  <!-- 步骤1: 输入手机号查询会员 -->
+  <view class="phone-section" wx:if="{{step === 1}}">
+    <view class="section-title">赠送项目</view>
+    
+    <view class="phone-input-area">
+      <input 
+        type="number" 
+        placeholder="请输入会员手机号" 
+        bindinput="inputPhoneNumber"
+        maxlength="11"
+        value="{{phoneNumber}}"
+        class="phone-input"
+      />
+      <button class="search-btn" bindtap="searchMember" disabled="{{loading}}">
+        {{loading ? '查询中...' : '查询'}}
+      </button>
+    </view>
+    
+    <view class="tip-text">请输入顾客手机号查询会员信息</view>
+  </view>
+  
+  <!-- 步骤2: 选择赠送项目 -->
+  <view class="gift-section" wx:if="{{step === 2 && userInfo}}">
+    <view class="back-btn" bindtap="backToPhoneInput">返回</view>
+    
+    <view class="user-info">
+      <text class="user-name">{{userInfo.nickName || '会员'}}</text>
+      <text class="user-phone">{{userInfo.phone}}</text>
+      <text class="current-times">当前剩余总次数: {{userInfo.remaining_times || 0}}</text>
+      
+      <view class="service-times-info" wx:if="{{userInfo.service_times}}">
+        <view class="service-type-summary">
+          <text class="service-label">基础拉伸:</text>
+          <text class="service-value">60分钟 {{userInfo.service_times.basic_60 || 0}}次 / 90分钟 {{userInfo.service_times.basic_90 || 0}}次</text>
+        </view>
+        <view class="service-type-summary">
+          <text class="service-label">肌肉筋膜处理:</text>
+          <text class="service-value">60分钟 {{userInfo.service_times.advanced_60 || 0}}次 / 90分钟 {{userInfo.service_times.advanced_90 || 0}}次</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="step-guide">请依次选择以下项目</view>
+
+    <view class="service-type-section">
+      <view class="section-title">项目类型</view>
+      <view class="service-type-options">
+        <view class="service-type-item {{serviceType === 'basic' ? 'selected' : ''}}" bindtap="selectServiceType" data-type="basic">
+          <view class="service-name">基础拉伸</view>
+          <view class="service-desc">日常保健</view>
+          <view class="selected-indicator" wx:if="{{serviceType === 'basic'}}">✓</view>
+        </view>
+        <view class="service-type-item {{serviceType === 'advanced' ? 'selected' : ''}}" bindtap="selectServiceType" data-type="advanced">
+          <view class="service-name">肌肉筋膜处理/运动训练</view>
+          <view class="service-desc">体态调整，损伤修护，疼痛处理</view>
+          <view class="selected-indicator" wx:if="{{serviceType === 'advanced'}}">✓</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="service-duration-section">
+      <view class="section-title">服务时长</view>
+      <view class="service-duration-options">
+        <view class="duration-item {{duration === 60 ? 'selected' : ''}}" bindtap="selectDuration" data-duration="60">
+          <view class="duration-time">60分钟</view>
+          <view class="duration-price">¥{{serviceType === 'basic' ? '299' : '399'}}</view>
+          <view class="selected-indicator" wx:if="{{duration === 60}}">✓</view>
+        </view>
+        <view class="duration-item {{duration === 90 ? 'selected' : ''}}" bindtap="selectDuration" data-duration="90">
+          <view class="duration-time">90分钟</view>
+          <view class="duration-price">¥{{serviceType === 'basic' ? '439' : '579'}}</view>
+          <view class="selected-indicator" wx:if="{{duration === 90}}">✓</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="gift-amount-section">
+      <view class="section-title">赠送次数</view>
+      <view class="amount-selector">
+        <view class="minus-btn" bindtap="decreaseGiftTimes">-</view>
+        <input 
+          type="number" 
+          class="amount-input" 
+          value="{{giftTimes}}" 
+          bindinput="inputGiftTimes"
+        />
+        <view class="plus-btn" bindtap="increaseGiftTimes">+</view>
+      </view>
+    </view>
+
+    <view class="reason-section">
+      <view class="section-title">赠送原因</view>
+      <textarea 
+        class="reason-input" 
+        placeholder="请输入赠送原因" 
+        bindinput="inputReason"
+        value="{{reason}}"
+        maxlength="100"
+      ></textarea>
+    </view>
+
+    <view class="summary-section" wx:if="{{serviceType && duration}}">
+      <view class="summary-title">赠送摘要</view>
+      <view class="summary-content">
+        <view class="summary-item">
+          <text class="summary-label">项目:</text>
+          <text class="summary-value">{{serviceType === 'basic' ? '基础拉伸' : '肌肉筋膜处理/运动训练'}}</text>
+        </view>
+        <view class="summary-item">
+          <text class="summary-label">时长:</text>
+          <text class="summary-value">{{duration}}分钟</text>
+        </view>
+        <view class="summary-item">
+          <text class="summary-label">价格:</text>
+          <text class="summary-value">¥{{getServicePrice()}}</text>
+        </view>
+        <view class="summary-item">
+          <text class="summary-label">数量:</text>
+          <text class="summary-value">{{giftTimes}}次</text>
+        </view>
+        <view class="summary-item total">
+          <text class="summary-label">总价值:</text>
+          <text class="summary-value">¥{{giftTimes * getServicePrice()}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="action-section">
+      <button class="cancel-btn" bindtap="navigateBack">取消</button>
+      <button class="confirm-btn" bindtap="confirmGift" disabled="{{!serviceType || !duration}}">
+        {{!serviceType || !duration ? '请选择服务项目和时长' : '确认赠送'}}
+      </button>
+    </view>
+  </view>
+</view> 

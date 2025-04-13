@@ -1,0 +1,24 @@
+<view class="login-container">
+  <view class="login-box" style="height: 899rpx; display: block; box-sizing: border-box">
+    <view class="title">账号登录</view>
+    
+    <view class="input-group">
+      <input 
+        class="input-item"
+        type="text" 
+        placeholder="请输入账号" 
+        bindinput="inputPhone"
+        value="{{phone}}"
+      />
+      <input 
+        class="input-item"
+        type="password" 
+        placeholder="请输入密码" 
+        bindinput="inputPassword"
+        value="{{password}}"
+      />
+    </view>
+
+    <button class="login-btn" bindtap="handleLogin" style="height: 104rpx; display: block; box-sizing: border-box; left: -16rpx; top: -14rpx; position: relative; width: 323rpx">登录</button>
+  </view>
+</view> 

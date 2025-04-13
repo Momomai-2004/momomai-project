@@ -1,0 +1,212 @@
+.container {
+  padding-top: env(safe-area-inset-top);
+}
+
+.verification-container {
+  min-height: 100vh;
+  background: #f8f8f8;
+  padding: 30rpx;
+}
+
+/* 核销方式选择 */
+.verify-methods {
+  display: flex;
+  justify-content: space-around;
+  background: #fff;
+  padding: 30rpx;
+  border-radius: 12rpx;
+  margin-bottom: 30rpx;
+}
+
+.method-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20rpx 40rpx;
+  border-radius: 8rpx;
+  text-align: center;
+}
+
+.method-item.active {
+  background: #e8f7ef;
+}
+
+.method-icon {
+  width: 60rpx;
+  height: 60rpx;
+  margin-bottom: 10rpx;
+}
+
+.method-item text {
+  width: 100%;
+  text-align: center;
+  font-size: 28rpx;
+  color: #333;
+}
+
+/* 券码输入区域 */
+.code-input-area {
+  background: #fff;
+  padding: 30rpx;
+  border-radius: 12rpx;
+  margin-bottom: 30rpx;
+}
+
+.input-box {
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+}
+
+.input-box input {
+  flex: 1;
+  height: 88rpx;
+  background: #f8f8f8;
+  border-radius: 8rpx;
+  padding: 0 30rpx;
+  font-size: 32rpx;
+  text-align: center;
+}
+
+/* 通用按钮样式 */
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* 核销按钮 */
+.verify-btn {
+  width: 160rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  background: #07c160;
+  color: #fff;
+  font-size: 30rpx;
+  border-radius: 8rpx;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 扫码区域 */
+.scan-area {
+  background: #fff;
+  padding: 60rpx 30rpx;
+  border-radius: 12rpx;
+  margin-bottom: 30rpx;
+  text-align: center;
+}
+
+/* 扫码按钮 */
+.scan-btn {
+  width: 100%;
+  background: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.scan-btn::after {
+  border: none;
+}
+
+.scan-btn image {
+  width: 120rpx;
+  height: 120rpx;
+  margin-bottom: 20rpx;
+}
+
+.scan-btn text {
+  font-size: 28rpx;
+  color: #333;
+  text-align: center;
+  width: 100%;
+}
+
+/* 核销记录 */
+.verify-history {
+  background: #fff;
+  padding: 30rpx;
+  border-radius: 12rpx;
+}
+
+.history-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 30rpx;
+}
+
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 0;
+  border-bottom: 2rpx solid #f5f5f5;
+}
+
+.history-info {
+  flex: 1;
+}
+
+.service-name {
+  font-size: 30rpx;
+  color: #333;
+  margin-bottom: 8rpx;
+}
+
+.verify-time {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.verify-status {
+  font-size: 28rpx;
+  color: #07c160;
+}
+
+.empty-history {
+  text-align: center;
+  padding: 60rpx 0;
+  color: #999;
+  font-size: 28rpx;
+}
+
+/* 取消按钮样式（如果有的话） */
+.cancel-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 88rpx;
+  line-height: 88rpx;
+  padding: 0;
+  margin: 0;
+}
+
+/* 确保所有按钮文字居中 */
+button::after {
+  border: none;
+}
+
+.verification-form {
+  padding: 30rpx 20rpx;
+}
+
+.input-group {
+  margin-bottom: 30rpx;
+}
+
+.verification-result {
+  margin-top: 40rpx;
+  padding: 20rpx;
+  border-radius: 8rpx;
+  text-align: center;
+} 

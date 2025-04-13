@@ -1,0 +1,137 @@
+<view class="recharge-container">
+  <view class="scrollable-content">
+    <!-- 自定义充值部分 -->
+    <view class="custom-recharge-box">
+      <view class="input-box">
+        <view class="input-label">请输入充值金额</view>
+        <input type="number" class="amount-input" placeholder="请输入金额"/>
+      </view>
+      <view class="recharge-button-box">
+        <!-- 顶部立即充值按钮 -->
+        <button class="recharge-btn" bindtap="handleAmountRecharge">立即充值</button>
+      </view>
+    </view>
+    
+    <!-- 课程套餐部分 -->
+    <view class="package-box">
+      <!-- 基础拉伸套餐 -->
+      <view class="course-type-box">
+        <view class="course-title">基础拉伸套餐</view>
+        
+        <!-- 60分钟套餐 -->
+        <view class="duration-box">
+          <view class="duration-title">60分钟</view>
+          <view class="session-box">
+            <view class="session-item {{selectedId === 'basic_60_4' ? 'selected' : ''}}" 
+                  bind:tap="selectPackage"
+                  data-id="basic_60_4"
+                  data-price="1596">
+              4节 ¥1596 (平均¥399/节)
+            </view>
+            <view class="session-item {{selectedId === 'basic_60_12' ? 'selected' : ''}}"
+                  bind:tap="selectPackage"
+                  data-id="basic_60_12"
+                  data-price="4308">
+              12节 ¥4308 (平均¥359/节)
+            </view>
+            <view class="session-item {{selectedId === 'basic_60_24' ? 'selected' : ''}}"
+                  bind:tap="selectPackage"
+                  data-id="basic_60_24"
+                  data-price="7896">
+              24节 ¥7896 (平均¥329/节)
+            </view>
+          </view>
+        </view>
+
+        <!-- 90分钟套餐 -->
+        <view class="duration-box">
+          <view class="duration-title">90分钟</view>
+          <view class="session-box">
+            <view class="session-item {{selectedId === 'basic_90_4' ? 'selected' : ''}}"
+                  bind:tap="selectPackage"
+                  data-id="basic_90_4"
+                  data-price="1996">
+              4节 ¥1996 (平均¥499/节)
+            </view>
+            <view class="session-item {{selectedId === 'basic_90_12' ? 'selected' : ''}}"
+                  bind:tap="selectPackage"
+                  data-id="basic_90_12"
+                  data-price="5388">
+              12节 ¥5388 (平均¥449/节)
+            </view>
+            <view class="session-item {{selectedId === 'basic_90_24' ? 'selected' : ''}}"
+                  bind:tap="selectPackage"
+                  data-id="basic_90_24"
+                  data-price="9576">
+              24节 ¥9576 (平均¥399/节)
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <!-- 肌肉筋膜处理套餐 -->
+      <view class="course-type-box">
+        <view class="course-title">肌肉筋膜处理套餐</view>
+        
+        <!-- 60分钟套餐 -->
+        <view class="duration-box">
+          <view class="duration-title">60分钟</view>
+          <view class="session-box">
+            <view class="session-item {{selectedId === 'muscle_60_4' ? 'selected' : ''}}"
+                  bind:tap="selectPackage"
+                  data-id="muscle_60_4"
+                  data-price="1996">
+              4节 ¥1996 (平均¥499/节)
+            </view>
+            <view class="session-item {{selectedId === 'muscle_60_12' ? 'selected' : ''}}"
+                  bind:tap="selectPackage"
+                  data-id="muscle_60_12"
+                  data-price="5388">
+              12节 ¥5388 (平均¥449/节)
+            </view>
+            <view class="session-item {{selectedId === 'muscle_60_24' ? 'selected' : ''}}"
+                  bind:tap="selectPackage"
+                  data-id="muscle_60_24"
+                  data-price="9576">
+              24节 ¥9576 (平均¥399/节)
+            </view>
+          </view>
+        </view>
+
+        <!-- 90分钟套餐 -->
+        <view class="duration-box">
+          <view class="duration-title">90分钟</view>
+          <view class="session-box">
+            <view class="session-item {{selectedId === 'muscle_90_4' ? 'selected' : ''}}"
+                  bind:tap="selectPackage"
+                  data-id="muscle_90_4"
+                  data-price="2396">
+              4节 ¥2396 (平均¥599/节)
+            </view>
+            <view class="session-item {{selectedId === 'muscle_90_12' ? 'selected' : ''}}"
+                  bind:tap="selectPackage"
+                  data-id="muscle_90_12"
+                  data-price="6468">
+              12节 ¥6468 (平均¥539/节)
+            </view>
+            <view class="session-item {{selectedId === 'muscle_90_24' ? 'selected' : ''}}"
+                  bind:tap="selectPackage"
+                  data-id="muscle_90_24"
+                  data-price="11496">
+              24节 ¥11496 (平均¥479/节)
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部信息栏 -->
+  <view class="bottom-bar">
+    <view class="price-info">
+      <text>总计：</text>
+      <text class="price">¥{{selectedPrice || '0.00'}}</text>
+    </view>
+    <button class="confirm-btn {{isPackageSelected ? 'active' : ''}}" bindtap="handlePackageRecharge">确认支付</button>
+  </view>
+</view>

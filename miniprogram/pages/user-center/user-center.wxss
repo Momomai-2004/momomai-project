@@ -1,0 +1,22 @@
+.container {
+  padding-top: env(safe-area-inset-top);
+}
+
+.user-header {
+  padding: 40rpx 20rpx;
+  background: #8BC34A;
+  color: #fff;
+}
+
+.menu-list {
+  background: #fff;
+  margin-top: 20rpx;
+}
+
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx 20rpx;
+  border-bottom: 1rpx solid #eee;
+}

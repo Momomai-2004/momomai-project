@@ -1,0 +1,121 @@
+<view class="page-container">
+  <view class="edit-section">
+    <view class="section-title">编辑会员信息</view>
+    
+    <view class="refresh-btn" bindtap="reloadUserData">
+      <text>刷新数据</text>
+    </view>
+    
+    <view class="form-item">
+      <text class="form-label">昵称</text>
+      <input 
+        class="form-input" 
+        type="text" 
+        value="{{nickName}}" 
+        bindinput="inputNickName" 
+        placeholder="请输入会员昵称"
+      />
+    </view>
+    
+    <view class="form-item">
+      <text class="form-label">手机号/账号</text>
+      <input 
+        class="form-input" 
+        type="text" 
+        value="{{phone}}" 
+        bindinput="inputPhone" 
+        placeholder="请输入手机号或账号"
+      />
+    </view>
+    
+    <view class="form-item">
+      <text class="form-label">钱包余额</text>
+      <input 
+        class="form-input" 
+        type="digit" 
+        value="{{walletBalance}}" 
+        bindinput="inputWalletBalance" 
+        placeholder="请输入钱包余额"
+      />
+    </view>
+    
+    <view class="form-item">
+      <text class="form-label">剩余次数</text>
+      <input 
+        class="form-input" 
+        type="number" 
+        value="{{remainingTimes}}" 
+        bindinput="inputRemainingTimes" 
+        placeholder="请输入剩余次数"
+      />
+    </view>
+
+    <!-- 新增服务项目次数详情 -->
+    <view class="service-times-section">
+      <view class="section-subtitle">项目次数详情</view>
+      
+      <view class="service-type-block">
+        <view class="service-type-title">基础拉伸</view>
+        <view class="service-time-items">
+          <view class="service-time-item">
+            <text class="service-time-label">60分钟</text>
+            <input 
+              class="service-time-input" 
+              type="number" 
+              value="{{basicTimes60}}" 
+              bindinput="inputBasicTimes60" 
+              placeholder="0"
+            />
+          </view>
+          <view class="service-time-item">
+            <text class="service-time-label">90分钟</text>
+            <input 
+              class="service-time-input" 
+              type="number" 
+              value="{{basicTimes90}}" 
+              bindinput="inputBasicTimes90" 
+              placeholder="0"
+            />
+          </view>
+        </view>
+      </view>
+      
+      <view class="service-type-block">
+        <view class="service-type-title">肌肉筋膜处理/运动训练</view>
+        <view class="service-time-items">
+          <view class="service-time-item">
+            <text class="service-time-label">60分钟</text>
+            <input 
+              class="service-time-input" 
+              type="number" 
+              value="{{advancedTimes60}}" 
+              bindinput="inputAdvancedTimes60" 
+              placeholder="0"
+            />
+          </view>
+          <view class="service-time-item">
+            <text class="service-time-label">90分钟</text>
+            <input 
+              class="service-time-input" 
+              type="number" 
+              value="{{advancedTimes90}}" 
+              bindinput="inputAdvancedTimes90" 
+              placeholder="0"
+            />
+          </view>
+        </view>
+      </view>
+    </view>
+    
+    <view class="notice">
+      <text>注意：直接修改会员余额和次数将不会创建交易记录，请谨慎操作。</text>
+    </view>
+    
+    <view class="action-buttons">
+      <button class="cancel-btn" bindtap="navigateBack">取消</button>
+      <button class="confirm-btn" bindtap="saveUserInfo" disabled="{{loading}}">
+        {{loading ? '保存中...' : '保存'}}
+      </button>
+    </view>
+  </view>
+</view> 

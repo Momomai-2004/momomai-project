@@ -1,0 +1,125 @@
+<view class="page-container">
+  <!-- 预约信息提示 -->
+  <view class="booking-info">
+    <view class="info-item">
+      <text class="label">预约时间：</text>
+      <text class="value">{{selectedDate}} {{selectedTime}}</text>
+    </view>
+  </view>
+
+  <!-- 基础拉伸服务 -->
+  <view class="service-category">
+    <view class="category-title">基础拉伸</view>
+    <view class="service-list">
+      <view class="service-item {{selectedService._id === item._id ? 'selected' : ''}}"
+            wx:for="{{basicServices}}"
+            wx:key="_id"
+            data-id="{{item._id}}"
+            bindtap="onServiceSelect">
+        <view class="service-main">
+          <view class="service-name">{{item.name}}</view>
+          <view class="service-duration">{{item.duration}}分钟</view>
+        </view>
+        <view class="service-price">¥{{item.price}}</view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 肌肉筋膜处理服务 -->
+  <view class="service-category">
+    <view class="category-title">肌肉筋膜处理</view>
+    <view class="service-list">
+      <view class="service-item {{selectedService._id === item._id ? 'selected' : ''}}"
+            wx:for="{{advancedServices}}"
+            wx:key="_id"
+            data-id="{{item._id}}"
+            bindtap="onServiceSelect">
+        <view class="service-main">
+          <view class="service-name">{{item.name}}</view>
+          <view class="service-duration">{{item.duration}}分钟</view>
+        </view>
+        <view class="service-price">¥{{item.price}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 确认按钮 -->
+  <view class="confirm-btn {{selectedService ? 'active' : ''}}" bindtap="confirmBooking">
+    立即预约
+  </view>
+
+  <!-- 支付选项弹窗 -->
+  <view class="payment-popup" wx:if="{{showPaymentOptions}}">
+    <view class="payment-mask" bindtap="closePaymentOptions"></view>
+    <view class="payment-content">
+      <view class="payment-title">选择支付方式</view>
+      
+      <view class="payment-option" bindtap="selectPayment" data-method="wechat">
+        <view class="payment-icon wechat-icon">
+          <image src="/images/wechat-pay.png" mode="aspectFit"></image>
+        </view>
+        <view class="payment-name">微信支付</view>
+        <view class="payment-arrow">></view>
+      </view>
+      
+      <view class="payment-option {{walletBalance < selectedService.price ? 'disabled' : ''}}" 
+            bindtap="selectPayment" 
+            data-method="wallet">
+        <view class="payment-icon wallet-icon">
+          <image src="/images/wallet.png" mode="aspectFit"></image>
+        </view>
+        <view class="payment-name">钱包余额</view>
+        <view class="payment-info">余额: ¥{{walletBalance}}</view>
+        <view class="payment-arrow">></view>
+      </view>
+      
+      <view class="payment-option {{remainingSessions <= 0 ? 'disabled' : ''}}" 
+            bindtap="selectPayment" 
+            data-method="times">
+        <view class="payment-icon times-icon">
+          <image src="/images/times.png" mode="aspectFit"></image>
+        </view>
+        <view class="payment-name">次数抵扣</view>
+        <view class="payment-info">
+          剩余: {{remainingSessions}}次
+          <text class="detail-btn" catchtap="showSessionsDetailModal">详情</text>
+        </view>
+        <view class="payment-arrow">></view>
+      </view>
+      
+      <view class="payment-close" bindtap="closePaymentOptions">取消</view>
+    </view>
+  </view>
+
+  <!-- 添加次数详情弹窗 -->
+  <view class="sessions-detail-modal" wx:if="{{showSessionsDetail}}">
+    <view class="modal-mask" bindtap="closeSessionsDetail"></view>
+    <view class="modal-content">
+      <view class="modal-title">剩余次数详情</view>
+      
+      <view class="sessions-list">
+        <view class="session-item">
+          <text class="session-name">基础拉伸60分钟</text>
+          <text class="session-count">{{basic60Count}}次</text>
+        </view>
+        
+        <view class="session-item">
+          <text class="session-name">基础拉伸90分钟</text>
+          <text class="session-count">{{basic90Count}}次</text>
+        </view>
+        
+        <view class="session-item">
+          <text class="session-name">肌肉筋膜处理60分钟</text>
+          <text class="session-count">{{advanced60Count}}次</text>
+        </view>
+        
+        <view class="session-item">
+          <text class="session-name">肌肉筋膜处理90分钟</text>
+          <text class="session-count">{{advanced90Count}}次</text>
+        </view>
+      </view>
+      
+      <view class="modal-close" bindtap="closeSessionsDetail">关闭</view>
+    </view>
+  </view>
+</view> 

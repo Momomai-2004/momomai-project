@@ -1,0 +1,147 @@
+.page-container {
+  padding: 30rpx;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+.edit-section {
+  background-color: #fff;
+  border-radius: 12rpx;
+  padding: 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 30rpx;
+  text-align: center;
+}
+
+.refresh-btn {
+  position: absolute;
+  top: 30rpx;
+  right: 30rpx;
+  font-size: 24rpx;
+  color: #7bc768;
+  background-color: rgba(123, 199, 104, 0.1);
+  padding: 6rpx 16rpx;
+  border-radius: 30rpx;
+  border: 1rpx solid #7bc768;
+}
+
+.form-item {
+  margin-bottom: 25rpx;
+}
+
+.form-label {
+  display: block;
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 15rpx;
+}
+
+.form-input {
+  height: 80rpx;
+  background-color: #f8f8f8;
+  border-radius: 8rpx;
+  padding: 0 20rpx;
+  font-size: 28rpx;
+}
+
+.notice {
+  margin: 40rpx 0;
+  padding: 20rpx;
+  background-color: #fff7e6;
+  border-radius: 8rpx;
+  font-size: 26rpx;
+  color: #ff9500;
+}
+
+.action-buttons {
+  display: flex;
+  margin-top: 50rpx;
+}
+
+.cancel-btn, .confirm-btn {
+  flex: 1;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 30rpx;
+  margin: 0 10rpx;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cancel-btn {
+  background-color: #f5f5f5;
+  color: #999;
+}
+
+.confirm-btn {
+  background-color: #7bc768;
+  color: #fff;
+}
+
+.confirm-btn[disabled] {
+  background-color: #ccc;
+  color: #fff;
+}
+
+/* 新增项目次数样式 */
+.service-times-section {
+  margin: 20rpx 0;
+  border-top: 1rpx solid #eee;
+  padding-top: 20rpx;
+}
+
+.section-subtitle {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+
+.service-type-block {
+  background-color: #f9f9f9;
+  border-radius: 8rpx;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.service-type-title {
+  font-size: 26rpx;
+  font-weight: 500;
+  color: #7bc768;
+  margin-bottom: 15rpx;
+}
+
+.service-time-items {
+  display: flex;
+  justify-content: space-between;
+}
+
+.service-time-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin: 0 10rpx;
+}
+
+.service-time-label {
+  font-size: 24rpx;
+  color: #666;
+  margin-bottom: 10rpx;
+}
+
+.service-time-input {
+  height: 70rpx;
+  background-color: #fff;
+  border: 1rpx solid #ddd;
+  border-radius: 8rpx;
+  padding: 0 15rpx;
+  font-size: 26rpx;
+  text-align: center;
+} 

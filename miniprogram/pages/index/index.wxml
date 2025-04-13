@@ -1,0 +1,38 @@
+<!-- 自定义导航栏区域（包含轮播图） -->
+<view class="container">
+  <!-- 自定义导航栏 -->
+  <view class="custom-nav" style="padding-top: {{statusBarHeight}}px">
+    <view class="nav-title">chilling·丘儿肌肉松解</view>
+  </view>
+</view>
+
+<!-- 页面其他内容 -->
+<view class="page-content" style="margin-top: {{navHeight}}px">
+  <!-- 原有的页面内容 -->
+</view>
+
+<!-- 最外层容器 -->
+<view class="page-container">
+  <!-- 提示信息盒子 -->
+  <view class="hint-box">
+    <text class="hint-text">请提前一个小时预约</text>
+  </view>
+
+  <!-- 理疗师选择大盒子 -->
+  <view class="therapist-box" style="height: 330rpx; display: block; box-sizing: border-box; width: 705rpx">
+    <text class="section-title">请点击选择您要预约的理疗师</text>
+    
+    <!-- 理疗师列表大盒子 -->
+    <view class="therapist-list">
+      <!-- 使用循环渲染理疗师列表 -->
+      <block wx:for="{{therapists}}" wx:key="id">
+        <view class="therapist-item" bindtap="goToBooking" data-id="{{item.id}}">
+          <view class="avatar-container">
+            <image class="avatar" src="{{item.avatar}}" mode="aspectFit" binderror="handleImageError" data-type="avatar" data-index="{{index}}"></image>
+          </view>
+          <text class="name">{{item.name}}</text>
+        </view>
+      </block>
+    </view>
+  </view>
+</view> 

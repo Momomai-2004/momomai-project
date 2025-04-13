@@ -1,0 +1,100 @@
+<view class="page-container">
+  <view class="change-section">
+    <view class="section-title">更改预约时间</view>
+    
+    <view class="current-info">
+      <text class="info-label">当前预约时间</text>
+      <text class="info-value">{{currentDate}} {{currentTime}}</text>
+    </view>
+    
+    <!-- 显示顾客信息和预约信息 -->
+    <view class="customer-info" wx:if="{{appointmentInfo && isStaff}}">
+      <view class="customer-header">
+        <text class="section-label">顾客信息</text>
+        <text class="view-all" bindtap="toggleCustomerAppointments">{{showCustomerAppointments ? '收起' : '查看预约记录'}}</text>
+      </view>
+      <view class="info-row">
+        <text class="info-label">姓名：</text>
+        <text class="info-value">{{appointmentInfo.user_name || '未知'}}</text>
+      </view>
+      <view class="info-row">
+        <text class="info-label">手机：</text>
+        <text class="info-value">{{appointmentInfo.user_phone || '未知'}}</text>
+      </view>
+      <view class="info-row">
+        <text class="info-label">服务：</text>
+        <text class="info-value">{{appointmentInfo.service_name}} ({{appointmentInfo.service_duration}}分钟)</text>
+      </view>
+      <view class="info-row">
+        <text class="info-label">状态：</text>
+        <text class="info-value status-{{appointmentInfo.status}}">{{appointmentInfo.status === 'pending' ? '待支付' : appointmentInfo.status === 'paid' ? '已支付' : appointmentInfo.status === 'confirmed' ? '已确认' : appointmentInfo.status === 'completed' ? '已完成' : '已取消'}}</text>
+      </view>
+    </view>
+    
+    <!-- 顾客的预约记录列表 -->
+    <view class="customer-appointments" wx:if="{{isStaff && showCustomerAppointments && customerAppointments.length > 0}}">
+      <view class="appointments-title">预约记录</view>
+      <view class="appointment-list">
+        <view class="appointment-item" wx:for="{{customerAppointments}}" wx:key="_id">
+          <view class="appointment-date">{{item.appointment_date}} {{item.time_slot}}</view>
+          <view class="appointment-info">
+            <view class="service-name">{{item.service_name}} ({{item.service_duration}}分钟)</view>
+            <view class="appointment-status status-{{item.status}}">{{item.statusText}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 员工自己的预约列表 -->
+    <view class="staff-appointments" wx:if="{{isStaff}}">
+      <view class="appointments-title">我的排班</view>
+      <view wx:if="{{staffAppointments.length > 0}}" class="appointment-list">
+        <view class="appointment-item" wx:for="{{staffAppointments}}" wx:key="_id">
+          <view class="appointment-date">{{item.appointment_date}} {{item.time_slot}}</view>
+          <view class="appointment-info">
+            <view class="service-name">{{item.service_name}} ({{item.service_duration}}分钟)</view>
+            <view class="customer-name">顾客: {{item.user_name || '未知'}}</view>
+          </view>
+        </view>
+      </view>
+      <view wx:else class="empty-appointments">
+        <text>暂无预约排班</text>
+      </view>
+    </view>
+    
+    <view class="date-section">
+      <text class="section-label">选择新日期</text>
+      <picker 
+        mode="date" 
+        value="{{newDate}}"
+        start="{{newDate}}"
+        bindchange="bindDateChange"
+      >
+        <view class="date-picker">
+          <text>{{newDate}}</text>
+          <text class="arrow">▼</text>
+        </view>
+      </picker>
+    </view>
+    
+    <view class="time-section">
+      <text class="section-label">选择新时间段</text>
+      <view class="time-slots">
+        <view 
+          wx:for="{{timeSlots}}" 
+          wx:key="index"
+          class="time-slot-item {{newTime === item ? 'selected' : ''}} {{availableTimeSlots.indexOf(item) === -1 ? 'disabled' : ''}}"
+          bindtap="selectTimeSlot"
+          data-time="{{item}}"
+        >
+          {{item}}
+        </view>
+      </view>
+    </view>
+    
+    <view class="action-buttons">
+      <button class="cancel-btn" bindtap="navigateBack">取消</button>
+      <button class="confirm-btn" bindtap="confirmChange">确认更改</button>
+    </view>
+  </view>
+</view> 

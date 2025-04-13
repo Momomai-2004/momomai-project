@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "openapi": [],
+    "database": [
+      {
+        "name": "users",
+        "read": true,
+        "write": true
+      },
+      {
+        "name": "staff",
+        "read": true,
+        "write": true
+      }
+    ]
+  }
+}

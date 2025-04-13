@@ -1,0 +1,103 @@
+<view class="orders-page">
+  <!-- 顶部状态筛选栏 -->
+  <view class="filter-tabs">
+    <view class="tab {{selectedStatus === 'all' ? 'active' : ''}}" 
+          bindtap="filterByStatus" data-status="all">全部</view>
+    <view class="tab {{selectedStatus === 'pending' ? 'active' : ''}}" 
+          bindtap="filterByStatus" data-status="pending">待支付</view>
+    <view class="tab {{selectedStatus === 'paid' ? 'active' : ''}}" 
+          bindtap="filterByStatus" data-status="paid">已支付</view>
+    <view class="tab {{selectedStatus === 'cancelled' ? 'active' : ''}}" 
+          bindtap="filterByStatus" data-status="cancelled">已取消</view>
+    <view class="tab history-tab" bindtap="gotoHistory">已完成</view>
+  </view>
+
+  <!-- 订单列表 -->
+  <view class="order-list">
+    <block wx:if="{{orderList.length > 0}}">
+      <view class="order-item {{item.status === 'paid' ? 'paid-order' : ''}}" 
+            wx:for="{{orderList}}" 
+            wx:key="_id" 
+            catchtap="viewOrderDetail" 
+            data-id="{{item._id}}" 
+            data-status="{{item.status}}">
+        <view class="order-header">
+          <text class="order-number">订单号：{{item._id}}</text>
+          <text class="order-status {{item.status}}">{{item.statusText}}</text>
+        </view>
+        
+        <view class="order-service">
+          <text class="service-name">{{item.service_name}}</text>
+          <text class="service-duration">{{item.service_duration}}分钟</text>
+        </view>
+        
+        <!-- 理疗师信息 -->
+        <view class="therapist-info" wx:if="{{item.therapistName || item.therapist_name}}">
+          <image class="therapist-avatar" wx:if="{{item.therapistAvatar || item.therapist_avatar}}" 
+                 src="{{item.therapistAvatar || item.therapist_avatar}}" mode="aspectFill"></image>
+          <view class="therapist-avatar default-avatar" wx:else></view>
+          <view class="therapist-details">
+            <text class="therapist-name">{{item.therapistName || item.therapist_name}}</text>
+            <text class="therapist-title" wx:if="{{item.therapistTitle || item.therapist_title}}">{{item.therapistTitle || item.therapist_title}}</text>
+          </view>
+        </view>
+        
+        <view class="order-info">
+          <text class="order-time">预约时间：{{item.appointment_date}} {{item.time_slot}}</text>
+          <text class="order-amount">￥{{item.amountFormat}}</text>
+        </view>
+        
+        <!-- 显示支付方式（已支付订单） -->
+        <view class="payment-method" wx:if="{{item.status === 'paid' && item.payment_method}}">
+          <text class="payment-icon {{item.payment_method}}"></text>
+          <text class="payment-text">{{item.paymentMethodText}}</text>
+        </view>
+        
+        <!-- 待支付订单显示倒计时 -->
+        <view class="order-countdown" wx:if="{{item.status === 'pending' && item.remainingTime}}">
+          <text class="countdown-label">支付倒计时：</text>
+          <text class="countdown-time">{{item.remainingTime}}</text>
+        </view>
+        
+        <view class="order-footer">
+          <text class="create-time">下单时间：{{item.createTimeFormat}}</text>
+          <view class="order-actions">
+            <block wx:if="{{item.status === 'pending'}}">
+              <text class="action-btn pay-btn" catchtap="viewOrderDetail" data-id="{{item._id}}" data-status="{{item.status}}" data-action="pay">去支付</text>
+              <text class="action-btn cancel-btn" catchtap="viewOrderDetail" data-id="{{item._id}}" data-status="{{item.status}}" data-action="cancel">取消订单</text>
+            </block>
+            <text class="action-btn contact-btn" wx:if="{{item.status === 'paid'}}" catchtap="viewOrderDetail" data-id="{{item._id}}" data-status="{{item.status}}" data-action="contact">联系客服</text>
+            <text class="action-btn review-btn" wx:if="{{item.status === 'completed'}}" catchtap="viewOrderDetail" data-id="{{item._id}}" data-status="{{item.status}}" data-action="review">评价</text>
+          </view>
+        </view>
+        
+        <!-- 订单取消/完成原因 -->
+        <view class="order-status-reason" wx:if="{{item.status === 'cancelled' && item.autoCancel}}">
+          <text class="status-reason cancel-reason">订单已自动取消：支付超时</text>
+        </view>
+        <view class="order-status-reason" wx:if="{{item.cancelFailed}}">
+          <text class="status-reason error-reason">自动取消失败，请手动取消</text>
+        </view>
+        <view class="order-status-reason" wx:if="{{item.status === 'completed' && item.auto_completed}}">
+          <text class="status-reason complete-reason">服务已完成</text>
+        </view>
+      </view>
+    </block>
+    
+    <!-- 无数据提示 -->
+    <view class="empty-tip" wx:if="{{orderList.length === 0 && !loading}}">
+      <image class="empty-icon" src="/images/empty-orders.png"></image>
+      <view class="empty-text">暂无订单记录</view>
+    </view>
+    
+    <!-- 加载状态 -->
+    <view class="loading" wx:if="{{loading}}">
+      <text>加载中...</text>
+    </view>
+    
+    <!-- 加载完毕提示 -->
+    <view class="no-more" wx:if="{{!hasMore && orderList.length > 0}}">
+      <text>没有更多订单了</text>
+    </view>
+  </view>
+</view> 

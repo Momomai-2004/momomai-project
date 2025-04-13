@@ -1,0 +1,164 @@
+<view class="page-container">
+  <!-- 未登录提示 -->
+  <view class="login-required" wx:if="{{!isLoggedIn}}">
+    <view class="empty-icon"></view>
+    <view class="empty-text">您需要登录才能管理预约</view>
+    <view class="empty-subtext">员工账号可以在此查看和管理客户预约</view>
+    <button class="login-btn" bindtap="goToStaffLogin">登录员工账号</button>
+  </view>
+
+  <!-- 登录后内容 -->
+  <block wx:else>
+    <!-- 顶部统计栏 -->
+    <view class="stats-bar">
+      <view class="stat-item">
+        <view class="stat-value">{{stats.today || 0}}</view>
+        <view class="stat-label">今日预约</view>
+      </view>
+      <view class="stat-item">
+        <view class="stat-value">{{stats.pending || 0}}</view>
+        <view class="stat-label">待确认</view>
+      </view>
+      <view class="stat-item">
+        <view class="stat-value">{{stats.upcoming || 0}}</view>
+        <view class="stat-label">未来预约</view>
+      </view>
+    </view>
+
+    <!-- 快捷操作栏 -->
+    <view class="quick-actions">
+      <button class="action-btn confirm-btn" bindtap="confirmAllPending" wx:if="{{stats.pending > 0}}">
+        <text class="action-icon">✓</text>
+        <text>确认待处理 ({{stats.pending}})</text>
+      </button>
+    </view>
+
+    <!-- 连接状态显示 -->
+    <view class="connection-status {{connectionStatus === 'error' ? 'error' : 'normal'}}">
+      <text wx:if="{{connectionStatus === 'error'}}">云环境连接异常，请检查网络</text>
+      <text wx:else>最后更新: {{lastRefreshTime || '未刷新'}}</text>
+    </view>
+
+    <!-- 下拉刷新提示 -->
+    <view class="pull-refresh-tip">
+      <text>👇 下拉刷新预约数据</text>
+    </view>
+
+    <!-- 头部搜索和筛选 -->
+    <view class="header">
+      <view class="search-bar">
+        <icon type="search" size="14"></icon>
+        <input 
+          placeholder="搜索客户姓名或电话" 
+          bindinput="onSearchInput"
+          value="{{searchQuery}}"
+        />
+        <icon wx:if="{{searchQuery}}" type="clear" size="14" bindtap="clearSearch"></icon>
+      </view>
+
+      <view class="tabs">
+        <view 
+          class="tab {{activeTab === 'today' ? 'active' : ''}}" 
+          data-tab="today" 
+          bindtap="switchTab"
+        >今日</view>
+        <view 
+          class="tab {{activeTab === 'upcoming' ? 'active' : ''}}" 
+          data-tab="upcoming" 
+          bindtap="switchTab"
+        >即将到来</view>
+        <view 
+          class="tab {{activeTab === 'all' ? 'active' : ''}}" 
+          data-tab="all" 
+          bindtap="switchTab"
+        >全部</view>
+      </view>
+    </view>
+
+    <!-- 加载状态 -->
+    <view class="loading-state" wx:if="{{isLoading}}">
+      <view class="loading-spinner"></view>
+      <text>正在加载预约数据...</text>
+    </view>
+
+    <!-- 空状态显示 -->
+    <view class="empty-state" wx:elif="{{filteredAppointments.length === 0}}">
+      <view class="empty-icon {{activeTab}}"></view>
+      <text wx:if="{{searchQuery}}">未找到匹配"{{searchQuery}}"的预约</text>
+      <text wx:elif="{{activeTab === 'today'}}">今天没有预约安排</text>
+      <text wx:elif="{{activeTab === 'upcoming'}}">近期没有新的预约</text>
+      <text wx:else>暂无预约记录</text>
+      <view class="empty-action">
+        <button class="refresh-btn" bindtap="refreshAppointments">
+          <text class="refresh-icon">🔄</text>
+          <text>刷新数据</text>
+        </button>
+      </view>
+    </view>
+
+    <!-- 预约列表 -->
+    <view class="appointment-list" wx:else>
+      <view 
+        class="appointment-card"
+        wx:for="{{filteredAppointments}}"
+        wx:key="index"
+        data-status="{{item.status}}"
+      >
+        <view class="appointment-header">
+          <view class="appointment-service">{{item.serviceName}}</view>
+          <view class="appointment-status-tag {{item.status}}">{{statusTexts[item.status]}}</view>
+        </view>
+
+        <view class="appointment-time">
+          <text class="date">{{item.formattedDate}}</text>
+          <text class="time">{{item.startTime}} - {{item.endTime}}</text>
+        </view>
+
+        <view class="appointment-customer">
+          <text class="customer-name">{{item.customerName}}</text>
+          <text class="customer-phone">{{item.customerPhone}}</text>
+        </view>
+
+        <!-- 添加治疗师信息 -->
+        <view class="therapist-info" wx:if="{{item.therapistName}}">
+          <image class="therapist-avatar" src="{{item.therapistAvatar || '/images/default-avatar.png'}}"></image>
+          <view class="therapist-details">
+            <text class="therapist-name">{{item.therapistName}}</text>
+            <text class="therapist-title" wx:if="{{item.therapistTitle}}">{{item.therapistTitle}}</text>
+          </view>
+        </view>
+
+        <!-- 预约备注 -->
+        <view class="appointment-notes" wx:if="{{item.notes}}">
+          <view class="notes-icon">📝</view>
+          <view class="notes-content">{{item.notes}}</view>
+        </view>
+
+        <!-- 操作按钮 -->
+        <view class="appointment-actions">
+          <block wx:if="{{item.status === 'pending'}}">
+            <button class="action-btn confirm-btn" data-id="{{item._id}}" bindtap="confirmAppointment">确认</button>
+            <button class="action-btn reschedule-btn" data-id="{{item._id}}" bindtap="rescheduleAppointment">改期</button>
+            <button class="action-btn cancel-btn" data-id="{{item._id}}" bindtap="cancelAppointment">取消</button>
+          </block>
+          <block wx:elif="{{item.status === 'confirmed'}}">
+            <button class="action-btn complete-btn" data-id="{{item._id}}" bindtap="completeService">完成</button>
+            <button class="action-btn reschedule-btn" data-id="{{item._id}}" bindtap="rescheduleAppointment">改期</button>
+            <button class="action-btn cancel-btn" data-id="{{item._id}}" bindtap="cancelAppointment">取消</button>
+          </block>
+          <block wx:elif="{{item.status === 'completed'}}">
+            <button class="action-btn details-btn" data-index="{{index}}" bindtap="viewCompletedAppointmentDetails">查看详情</button>
+          </block>
+          <block wx:elif="{{item.status === 'cancelled'}}">
+            <button class="action-btn details-btn" data-index="{{index}}" bindtap="viewCancelledAppointmentDetails">查看详情</button>
+          </block>
+        </view>
+      </view>
+
+      <!-- 底部提示 -->
+      <view class="bottom-tips" wx:if="{{filteredAppointments.length > 0}}">
+        <text>已显示全部 {{filteredAppointments.length}} 条预约</text>
+      </view>
+    </view>
+  </block>
+</view> 
